@@ -1,0 +1,28 @@
+html,body{
+    height:100%;
+    margin: 0%;
+    text-align: center;
+    color: black;  
+    background-repeat: no-repeat;
+    background-color:white ;   
+}
+.bgg{
+    background-color: #fafafa;
+    border-radius: 2.5%;
+    height: 700px;;
+    width: 1400px;
+    text-align: left;
+    
+}
+.div {
+    background-color: blue;
+  }
+  
+  .hr{
+    height:20px;border-width:0;color:gray;background-color:gray"
+  } 
+  .p{
+      color : rgb(224, 0, 0);
+      border-radius: 10%;
+  }
+ 
