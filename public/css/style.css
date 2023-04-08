@@ -1,28 +1,33 @@
+@font-face {
+    font-family: 'FiraCode';
+    src: url('../Fonts/Fira_Code/FiraCode-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'FiraCode', sans-serif;
+  }
+  
 
+  
+  
 
 .bggg{
-    background-color: #8b8888;
-    border-radius: 2.5%;
-    height: 700px;;
+    background-color: #e1e5f2;
+    border-radius: 15px;
+    height: 600px;;
     width: 1400px;
     text-align: left;
     
 }
 .bgg{
-    background-color: #c40b0b;
-    border-radius: 2.5%;
-    
-    text-align: left;
-    
-}
-.bg{
-    background-color: #c40b0b;
-    border-radius: 2.5%;
-    padding-top: 10%;
-    
-    text-align: left;
+    background-color: #00a6fb;
+    border-radius: 10px;    
+    text-align: center;
     
 }
+
 .div {
     background-color: blue;
   }
@@ -56,11 +61,18 @@
   }
 
   .cta-btn {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 30px;
-    border-radius: 5px;
+    background-color: #0000ff;
+    color: white;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 10px;
     text-decoration: none;
+  }
+  
+  .cta-btn:active,
+  .cta-btn:hover {
+    background-color: #d90429;
+    color: white;
   }
  
   form {
@@ -77,10 +89,7 @@
     margin-right: 1rem;
   }
   
-  body {
-    font-family: Arial, sans-serif;
-  }
-
+  
   label {
     display: block;
     margin-bottom: 5px;
@@ -119,19 +128,20 @@
   }
 
   .size-option:hover {
-    border: 1px solid #333;
+    border: 1px solid #0000ff;
   }
 
   button[type="submit"] {
     padding: 10px;
-    background-color: #333;
+    background-color: #0000ff;
     color: #fff;
     border: none;
     cursor: pointer;
+    width: 150px;
   }
 
   button[type="submit"]:hover {
-    background-color: #555;
+    background-color: #d90429;
   }
   
   .red {
@@ -180,9 +190,16 @@
   
   .prevBtn {
     left: 0;
+    color: #0000ff;
+    
+    
+    
   }
   
   .nextBtn {
     right: 0;
+    color: #0000ff;
+    
   }
+  
   
