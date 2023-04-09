@@ -13,16 +13,23 @@
 <header>
   <a href="#" class="logo"><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
   <nav>
+     <button class="btd switch slider round" id="dark-mode-toggle">Mode Nuit</button>
+     
+
+
+
+
+     
     
-    <a href="#" class="cta-btn">Se connecter</a>
     
   </nav>
+ <a href="#" class="cta-btn">Se connecter</a>
 </header>
 
 
 <div class="container  " >
                 <div class="row align-items-center text-center">
-                    <div class="col-xl-12 col-md-12 col-sm-12 ">
+                    <div class="col-xl-12 col-md-12 col-sm-12 tit ">
                         <h1>Merch Session Hiver 2023</h1>
                     </div>
                 </div>
@@ -73,6 +80,46 @@
                 
             </div>
         </div>
+
+        <div class="container  " >
+                <div class="row align-items-center text-center">
+                    <div class="col-xl-12 col-md-12 col-sm-12 tit ">
+                        <h1>Anciennes Collections</h1>
+                    </div>
+                </div>
+            </div> 
+    
+        <div class="container ">
+            <div class="row align-items-center text-center  py-5 ">
+            <div class="col-xl-6 col-md-6 col-sm-6  ">
+                <div class="row align-items-center text-center bggg2 py-5 ">
+                <div class="offset-xl-1 col-xl-4 col-md-4 col-sm-4 bgg py-5 px-5 ">
+                
+                <div class="slider">
+                <div class="slider-container">
+                    <img src="https://wallpapercave.com/wp/wp3185345.jpg" alt="Image 1">
+                    <img src="https://wallpapercave.com/wp/wp3185345.jpg" alt="Image 2">
+                    
+                </div>
+                <button class="prevBtn">&lt;</button>
+                <button class="nextBtn">&gt;</button>
+                </div>
+            </div>
+             </div>
+             </div>
+             
+
+                <div class="col-xl-6 col-md-6 col-sm-6  py-5 px-5"> 
+                 
+                         <h1>Merch Session Hiver 2020</h1>
+                         
+
+                </div>
+                
+            </div>
+        </div>
+
+        
 
         
 
