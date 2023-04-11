@@ -77,6 +77,17 @@ autoSlideInterval = setInterval(() => {
    console.log('Taille sélectionnée:', size);
  });
 
+ // sélectionner le bouton du mode nuit
+const darkModeToggle = document.querySelector('#dark-mode-toggle');
+
+// écouter l'événement click sur le bouton
+darkModeToggle.addEventListener('click', () => {
+  // ajouter ou supprimer la classe 'dark-mode' sur le body
+  document.body.classList.toggle('dark-mode');
+});
+
+
+
 
 
 
