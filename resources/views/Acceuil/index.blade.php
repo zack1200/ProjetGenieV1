@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-  <a href="#" class="logo"><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
+  <a href="/" class="logo"><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
   <nav>
      <button class="btd switch slider round" id="dark-mode-toggle">Mode Nuit</button>
      
