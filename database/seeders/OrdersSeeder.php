@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class OrdersSeeder extends Seeder
 {
@@ -18,7 +19,6 @@ class OrdersSeeder extends Seeder
                 'campaign_id'=> 1,
                 'status' =>'Dead',
                 'total_amount'=> 400,
-                'end_date'=> date('Y-m-d H-i-s'), 
                 'created_at'=> date('Y-m-d H-i-s'),
             ]
         ]);

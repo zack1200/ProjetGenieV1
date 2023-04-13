@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class CampaignsItemsSeeder extends Seeder
+class CampaignItemsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
