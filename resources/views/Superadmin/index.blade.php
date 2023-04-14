@@ -22,6 +22,14 @@
 , Mettre un bouton qui nous redirigera vers un formulaire pour pouvoir creer un nouveau compte admin. C'est tout pour ce role , affichage des admins, suppresion, modification et creation d'un admin -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+<!--<h1>Voici la liste des films</h1>
+
+@if (count($films))    @foreach($films as $film)       <li>{{ $film->nom }}</li>
+       <li>{{ $film->description }}</li>    @endforeach @else
+    <p>Il n'y a aucun film.</p>
+@endif
+ -->
 <div class="container mt-3 mb-4">
 <button class="btd switch slider round">Ajouter</button>
 <br><br>
