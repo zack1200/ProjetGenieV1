@@ -11,18 +11,9 @@
 </head>
 <body>
 <header>
-  <a href="/" class="logo"><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
-  <nav>
-     <button class="btd switch slider round" id="dark-mode-toggle">Mode Nuit</button>
-     
+  <a href="/" class="logo "><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
+  
 
-
-
-
-     
-    
-    
-  </nav>
  <a href="/login" class="cta-btn">Se connecter</a>
 </header>
 
@@ -33,91 +24,88 @@
                         <h1>Merch Session Hiver 2023</h1>
                     </div>
                 </div>
-            </div> 
-    
-        <div class="container ">
-            <div class="row align-items-center text-center  py-5 ">
-            <div class="col-xl-6 col-md-6 col-sm-6  ">
-                <div class="row align-items-center text-center bggg py-5 ">
-                <div class="offset-xl-1 col-xl-4 col-md-4 col-sm-4 bgg py-5 px-5 ">
-                
-                <div class="slider">
-                <div class="slider-container">
-                    <img src="https://wallpapercave.com/wp/wp3185345.jpg" alt="Image 1">
-                    <img src="https://wallpapercave.com/wp/wp3185345.jpg" alt="Image 2">
-                    
-                </div>
-                <button class="prevBtn">&lt;</button>
-                <button class="nextBtn">&gt;</button>
-                </div>
             </div>
-             </div>
-             </div>
-             
-
-                <div class="col-xl-6 col-md-6 col-sm-6 bgg py-5 px-5"> 
-                 
-                         <h1>Formulaire de commande de T-shirt</h1>
-                         <form id="shirt-form">
-                                    <label>Couleur:</label>
-                                <div class="color-options">
-                                <div class="color-option red" id="color-red"></div>
-                                <div class="color-option green" id="color-green"></div>
-                                <div class="color-option blue" id="color-blue"></div>
-                                </div>
-                                                    
-                                <div class="size-options">
-                                    <label>Taille:</label>
-                                    <div class="size-option">S</div>
-                                    <div class="size-option">M</div>
-                                    <div class="size-option">L</div>
-                                    <div class="size-option">XL</div>
-                                 </div>
-                                <button type="submit" class="cta-btn">Reserver</button>
-                         </form>
-
-                </div>
                 
-            </div>
-        </div>
-
-        <div class="container  " >
-                <div class="row align-items-center text-center">
-                    <div class="col-xl-12 col-md-12 col-sm-12 tit ">
-                        <h1>Anciennes Collections</h1>
+            
+        <div class="container col-xl-12">
+      <div class="row align-items-center text-center  py-3">
+        <div class="col-xl-4 bggg py-5">
+          <div class=" offset-xl-2 col-xl-4 col-md-4 col-sm-4 bgg py-5 px-5 ">
+                helloworld
+          </div>
+          <div class=" col-xl-12 col-md-4 col-sm-4 Desc py-4 ">
+          <h4>Merch Session Hiver 2020</h4>
+          <h5>Couleurs disponibles</h5>
+                    <div class="container">
+                <div class="color-sample red"></div>
+                <div class="color-sample blue"></div>
+                <div class="color-sample green"></div>
+                <div class="color-sample yellow"></div>
+                <div class="color-sample purple"></div>
                     </div>
-                </div>
-            </div> 
-    
-        <div class="container ">
-            <div class="row align-items-center text-center  py-5 ">
-            <div class="col-xl-6 col-md-6 col-sm-6  ">
-                <div class="row align-items-center text-center bggg2 py-5 ">
-                <div class="offset-xl-1 col-xl-4 col-md-4 col-sm-4 bgg py-5 px-5 ">
-                
-                <div class="slider">
-                <div class="slider-container">
-                    <img src="https://wallpapercave.com/wp/wp3185345.jpg" alt="Image 1">
-                    <img src="https://wallpapercave.com/wp/wp3185345.jpg" alt="Image 2">
-                    
-                </div>
-                <button class="prevBtn">&lt;</button>
-                <button class="nextBtn">&gt;</button>
-                </div>
-            </div>
-             </div>
-             </div>
-             
-
-                <div class="col-xl-6 col-md-6 col-sm-6  py-5 px-5"> 
-                 
-                         <h1>Merch Session Hiver 2020</h1>
-                         
-
-                </div>
-                
-            </div>
+                    <div class="container">
+                    <h5>Échantillons de taille</h5>
+                    <div class="size-sample small">S</div>
+                    <div class="size-sample medium">M</div>
+                    <div class="size-sample large">L</div>
+                    <div class="size-sample extra-large">XL</div>
+                    </div>
+          </div>
+          
         </div>
+
+         
+        <div class="col-xl-4 bggg py-5 ">
+          <div class=" offset-xl-2 col-xl-4 col-md-4 col-sm-4 bgg py-5 px-5 ">
+                helloworld
+          </div>
+          <div class=" col-xl-12 col-md-4 col-sm-4 Desc py-4 ">
+          <h4>Merch Session Hiver 2020</h4>
+          <h5>Couleurs disponibles</h5>
+                    <div class="container">
+                <div class="color-sample red"></div>
+                <div class="color-sample blue"></div>
+                <div class="color-sample green"></div>
+                <div class="color-sample yellow"></div>
+                <div class="color-sample purple"></div>
+                    </div>
+                    <div class="container">
+                    <h5>Échantillons de taille</h5>
+                    <div class="size-sample small">S</div>
+                    <div class="size-sample medium">M</div>
+                    <div class="size-sample large">L</div>
+                    <div class="size-sample extra-large">XL</div>
+                    </div>
+                    </div>
+          </div>
+          
+        <div class="col-xl-4 bggg py-5">
+          <div class=" offset-xl-2 col-xl-4 col-md-4 col-sm-4 bgg py-5 px-5 ">
+                helloworld
+          </div>
+          <div class=" col-xl-12 col-md-4 col-sm-4 Desc py-4 ">
+          <h4>Merch Session Hiver 2020</h4>
+          <h5>Couleurs disponibles</h5>
+                    <div class="container">
+                <div class="color-sample red"></div>
+                <div class="color-sample blue"></div>
+                <div class="color-sample green"></div>
+                <div class="color-sample yellow"></div>
+                <div class="color-sample purple"></div>
+                    </div>
+                    <div class="container">
+                    <h5>Échantillons de taille</h5>
+                    <div class="size-sample small">S</div>
+                    <div class="size-sample medium">M</div>
+                    <div class="size-sample large">L</div>
+                    <div class="size-sample extra-large">XL</div>
+                    </div>
+                    </div>
+          </div>
+      </div>
+      
+      
+    
 
         
 
