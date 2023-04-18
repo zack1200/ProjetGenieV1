@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'FiraCode';
+    src: url('../Fonts/Fira_Code/FiraCode-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'FiraCode', sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 200px;
+    left: 0;
+    height: 400px;
+    width: 100px;
+    background-color: rgb(187, 55, 55);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(250, 0, 0, 0.3);
+    
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.navbar a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    height: 60px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #444;
+}
+
+.navbar a i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.tit{
+    background-color: aqua;
+    border-radius: 20px;
+    text-align: center;
+    width: 800px;
+    height: 70px;
+    padding-top: 10px;
+}
+.containerTit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+  }

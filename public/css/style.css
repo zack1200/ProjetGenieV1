@@ -16,9 +16,10 @@
 .bggg{
     background-color: #e1e5f2;
     border-radius: 15px;
-    height: 600px;;
-    width: 1400px;
+    width: 400px;
+    height: 550px;
     text-align: left;
+    
     
 }
 .dark-mode .bggg {
@@ -47,6 +48,9 @@
     background-color: #00a6fb;
     border-radius: 10px;    
     text-align: center;
+    padding-top: 10px;
+    width: 250px;
+    height: 200px;
     
     
 }
@@ -272,6 +276,59 @@
     color: #7FFF00;
   }
   
+.Desc{
+  text-align: center;
+  align-items: center;
+}
+.color-sample {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+}
 
+/* couleurs d'échantillon */
+.color-sample.red {
+  background-color: red;
+}
+.color-sample.blue {
+  background-color: blue;
+}
+.color-sample.green {
+  background-color: green;
+}
+.color-sample.yellow {
+  background-color: yellow;
+}
+.color-sample.purple {
+  background-color: purple;
+}
+.size-sample {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+}
+
+/* tailles d'échantillon */
+.size-sample.small {
+  font-size: 12px;
+}
+.size-sample.medium {
+  font-size: 16px;
+}
+.size-sample.large {
+  font-size: 20px;
+}
+.size-sample.extra-large {
+  font-size: 24px;
+}
   
-  
+div {
+  margin: 10px;
+}

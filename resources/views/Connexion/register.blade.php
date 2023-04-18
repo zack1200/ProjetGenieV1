@@ -22,7 +22,7 @@
        
             <form action="/register" method="POST">
                 @csrf
-                <input type="text" class="text" name="username">  <!-- nom d utilisateur bd: email  -->
+                <input type="text" class="text" name="nom">  <!-- nom d utilisateur bd: email  -->
                  <span>username</span>
                 <br>
                 <input type="email" class="text" name="email">  <!-- nom d utilisateur bd: email  -->
@@ -36,7 +36,7 @@
                 <input type="password" class="text" name="password">   <!-- mot de passe bd : password  -->
                 <span>confirmer le mot de passe</span>
                 <br>
-                <input type="hidden" class="text" name="avatar" value="https://th.bing.com/th/id/OIP.UmOGXRBt3Di3iO994My2TwHaE8?pid=ImgDet&rs=1">  
+                
                 @if ($errors->any())
 <div>
     @foreach ($errors->all() as $error)
