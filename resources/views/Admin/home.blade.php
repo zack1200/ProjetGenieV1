@@ -19,71 +19,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Navbar avec icônes</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	
+	
 	
 		
 </head>
 <body>
 	<nav class="navbar">
-		<a href="#">
-			<i class="fas fa-home"></i>
-			<span>Accueil</span>
-		</a>
-        <a href="#">			
-            <i class="fas fa-clipboard-check"></i>
-			<span>Commandes</span>
-		</a>
-        <a href="#">			
-        <i class="fas fa-plus" style="color: #000000;"></i>
-			<span>Livraison </span>
-		</a>
-        <a href="#">			
-        <i class="fas fa-solid fa-backward"></i>
-			<span>Historiqie</span>
-		</a>
-		<a href="#">
-        <i class="fas fa-light fa-truck-clock"></i>
-			<span>Profil</span>
-		</a>
-		<a href="#">
-			<i class="fas fa-cog"></i>
-			<span>Paramètres</span>
-		</a>
-        
-	</nav>
+        <a href="/" class="logo "><img src="{{asset('img/icon/maison.png') }}" alt="Logo" width="30px" height="30px"></a>
+        <a href="/" class="logo "><img src="{{asset('img/icon/presse-papiers-liste-verification.png') }}" alt="Logo" width="30px" height="30px"></a>
+        <a href="/" class="logo "><img src="{{asset('img/icon/livraison.png') }}" alt="Logo" width="30px" height="30px"></a>   
+        <a href="/" class="logo "><img src="{{asset('img/icon/plus.png') }}" alt="Logo" width="30px" height="30px"></a>
+        <a href="/" class="logo "><img src="{{asset('img/icon/temps-passe.png') }}" alt="Logo" width="30px" height="30px"></a>
+            <br><br>
+        <a href="/" class="logo "><img src="{{asset('img/icon/exit.png') }}" alt="Logo" width="30px" height="30px"></a>
+    </nav>
 
 	<div class="containerTit  " >
                 <div class="row align-items-center text-center">
                     <div class="col-xl-12 col-md-12 col-sm-12  tit">
                         <h1>Merch Session Hiver 2023  
-                        <i class="fas fa-solid fa-play" style="color: #005eff;"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container py-5" >
-                <div class="row align-items-center ">
-                    <div class="col-xl-12 col-md-12 col-sm-12  ">
-                        <h1>Collections  :</h1>
+                        <a href="/" class="logo "><img src="{{asset('img/icon/jouer.png') }}" alt="Logo" width="30px" height="30px"></a>
                         
                     </div>
                 </div>
             </div>
 
+
+            <!-- items model-->
+            <div class="container py-5" >
+                <div class="row align-items-center ">
+                    <div class="col-xl-12 col-md-12 col-sm-12  ">
+                        <h1>Collections  :</h1>
+                        <div class="container Collection">
+                            <div class="row">
+                                <div class="col-md-2">
+                                <img src="{{asset('img/Model/t-shirt.png') }}" alt="Logo" width="100px" height="100px">
+                                </div>
+                                <div class="col-md-6">
+                                <h5 class="optiontitre"><b>T-shirts</b></h5>
+                                <h5>Couleurs disponibles : 7</h5>
+                                <h5>Tailles disponibles : 7</h5>
+                                </div>
+                                <div class="col-md-4 option">
+                                    <br>
+                                    <a href="/" class="logo "><img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px"></a>
+                                    <a href="/" class="logo "><img src="{{asset('img/icon/bouton-pause.png') }}" alt="" width="30px" height="30px"></a>
+                                    <a href="/" class="logo "><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px"></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container Collection">
+                            <div class="row">
+                                <div class="col-md-2">
+                                <img src="{{asset('img/Model/sweat-a-capuche.png') }}" alt="Logo" width="100px" height="100px">
+                                </div>
+                                <div class="col-md-6">
+                                <h5 class="optiontitre"> <b>sweet a capuche</b></h5>
+                                <h5>Couleurs disponibles : 7</h5>
+                                <h5>Tailles disponibles : 7</h5>
+                                </div>
+                                <div class="col-md-4 option">
+                                    <br>
+                                    <a href="/" class="logo "><img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px"></a>
+                                    <a href="/" class="logo "><img src="{{asset('img/icon/bouton-pause.png') }}" alt="" width="30px" height="30px"></a>
+                                    <a href="/" class="logo "><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px"></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container Collection">
+                            <div class="row">
+                                <div class="col-md-2">
+                                <img src="{{asset('img/Model/casquette.png') }}" alt="Logo" width="100px" height="100px">
+                                </div>
+                                <div class="col-md-6">
+                                <h5 class="optiontitre"><b>Casquette</b></h5>
+                                <h5>Couleurs disponibles : 7</h5>
+                                <h5>Tailles disponibles : 7</h5>
+                                </div>
+                                <div class="col-md-4 option">
+                                    <br>
+                                    <a href="/" class="logo "><img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px"></a>
+                                    <a href="/" class="logo "><img src="{{asset('img/icon/bouton-pause.png') }}" alt="" width="30px" height="30px"></a>
+                                    <a href="/" class="logo "><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px"></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- fin items model-->
+            
+            
+
 </body>
 </html>
 
-    <!--
-<div class="sidebar">
-  <ul>
-    <li><a href="#">Accueil</a></li>
-    <li><a href="#">Produits</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</div>
--->
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 

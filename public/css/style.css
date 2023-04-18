@@ -308,26 +308,16 @@
   display: inline-block;
   width: 50px;
   height: 30px;
-  border: 2px solid #ccc;
+  font-size: 20px;
   border-radius: 5px;
   text-align: center;
   line-height: 30px;
   margin-right: 10px;
+  text-decoration: underline #ff0000;
 }
 
 /* tailles d'échantillon */
-.size-sample.small {
-  font-size: 12px;
-}
-.size-sample.medium {
-  font-size: 16px;
-}
-.size-sample.large {
-  font-size: 20px;
-}
-.size-sample.extra-large {
-  font-size: 24px;
-}
+
   
 div {
   margin: 10px;
