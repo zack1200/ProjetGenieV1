@@ -13,7 +13,7 @@
 <header>
   <a href="/" class="logo "><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
   
-
+  <a href="/panier" class="cta-btn">Panier</a>
  <a href="/login" class="cta-btn">Se connecter</a>
 </header>
 

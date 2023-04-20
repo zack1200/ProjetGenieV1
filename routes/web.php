@@ -17,6 +17,9 @@ use App\Http\Controllers\UsersController;
 Route::get('/', function () {
     return view('Acceuil/index');
 });
+Route::get('/admin', function () {
+    return view('Admin/home');
+});
 Route::get('/superadmin', function () {
     return view('Superadmin/index');
 });
@@ -26,4 +29,6 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('Connexion/register');
 });
-
+Route::get('/panier', function () {
+    return view('Panier/index');
+});
