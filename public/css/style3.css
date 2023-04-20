@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'FiraCode';
+    src: url('../Fonts/Fira_Code/FiraCode-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'FiraCode', sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 200px;
+    left: 0;
+    height: 450px;
+    width: 100px;
+    background-color: #38B6FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(250, 0, 0, 0.3);
+    
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.navbar a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    height: 60px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+
+
+.navbar a i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.tit{
+    background-color: #38B6FF;
+    border-radius: 20px;
+    text-align: center;
+    width: 800px;
+    height: 70px;
+    padding-top: 10px;
+    
+}
+.Collection{
+    background-color: #F5F7FA;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width: 1000px;
+    height: 120px;
+    padding-top: 10px;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+.Reservation{
+    background-color: #F5F7FA;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width: 1000px;
+    height: 90px;
+    padding-top: 10px;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+.Recherche{
+    background-color: #38B6FF;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width: 300px;
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 50px;    
+}
+.pRecherche{
+    background-color: #fafafa;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+    padding-left: 50px; 
+}
+.containerTit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+  }
+  .option{
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .optiontitre{
+    text-transform: uppercase;
+  }
