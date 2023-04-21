@@ -16,23 +16,16 @@
 </header>
 
 <body>
-<!DOCTYPE html>
-<html>
-<head>
-	
-	
-	
-		
-</head>
+
 <body>
 	<nav class="navbar">
-        <a href="/" class="logo "><img src="{{asset('img/icon/maison.png') }}" alt="Logo" width="30px" height="30px"></a>
-        <a href="/" class="logo "><img src="{{asset('img/icon/presse-papiers-liste-verification.png') }}" alt="Logo" width="30px" height="30px"></a>
-        <a href="/" class="logo "><img src="{{asset('img/icon/livraison.png') }}" alt="Logo" width="30px" height="30px"></a>   
-        <a href="/" class="logo "><img src="{{asset('img/icon/plus.png') }}" alt="Logo" width="30px" height="30px"></a>
-        <a href="/" class="logo "><img src="{{asset('img/icon/temps-passe.png') }}" alt="Logo" width="30px" height="30px"></a>
+        <a href="/home" class=" "><img src="{{asset('img/icon/maison.png') }}" alt="Logo" width="30px" height="30px"></a>
+        <a href="/reservation" class=" "><img src="{{asset('img/icon/presse-papiers-liste-verification.png') }}" alt="Logo" width="30px" height="30px"></a>
+        <a href="/livraison" class=" "><img src="{{asset('img/icon/livraison.png') }}" alt="Logo" width="30px" height="30px"></a>   
+        <a href="/" class=" "><img src="{{asset('img/icon/plus.png') }}" alt="Logo" width="30px" height="30px"></a>
+        <a href="/" class=" "><img src="{{asset('img/icon/temps-passe.png') }}" alt="Logo" width="30px" height="30px"></a>
             <br><br>
-        <a href="/" class="logo "><img src="{{asset('img/icon/exit.png') }}" alt="Logo" width="30px" height="30px"></a>
+        <a href="/" class=" "><img src="{{asset('img/icon/exit.png') }}" alt="Logo" width="30px" height="30px"></a>
     </nav>
 
     @yield('contenuDuMillieu')
@@ -42,10 +35,7 @@
 
 
 
-    <footer>
-      <p>&copy 1997-2018 Zakaria, Inc.</p>
-      <p> ello world</p>
-    </footer>
+    
 
 
 

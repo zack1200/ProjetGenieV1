@@ -20,6 +20,15 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('Connexion/login');
 });
+Route::get('/home', function () {
+    return view('Admin/home');
+});
+Route::get('/reservation', function () {
+    return view('Admin/reservation');
+});
+Route::get('/livraison', function () {
+    return view('Admin/livraison');
+});
 Route::post("/login",[UsersController::class,'login']);
 
 Route::get('/register', function () {
