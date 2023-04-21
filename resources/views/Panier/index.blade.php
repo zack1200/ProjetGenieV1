@@ -23,7 +23,26 @@
                     </div>
                 </div>
             </div>
-                
+<div class="containe">
+    <div class="row ">
+        <div class="col-xl-7 col-md-7 col-sm-7">
+            ICI LES ITEMS
+            @if(count($itemsPanier))
+              @foreach($itemsPanier as $itemPanier)
+                <a href="{{ route('titres.show', [$titre]) }}">
+                  <img src="{{ asset('img/titres/' . $titre->poster) }}" class="imgP hvr-grow" alt="{{ $titre->nom }}">
+                </a>
+                $itemPanier->nom
+              @endforeach
+            @else
+              <h1>Aucun titre</h1>
+            @endif
+        </div>
+        <div class="col-xl-4 col-md-4 col-sm-4">
+            ICI PRIX
+        </div>
+    </div>
+</div>
             
 
       

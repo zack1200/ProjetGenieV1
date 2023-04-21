@@ -50,6 +50,7 @@
                     <div class="size-sample medium">M</div>
                     <div class="size-sample large">L</div>
                     <div class="size-sample extra-large">XL</div>
+                    <a href="/" class="cta-btn">Ajouter panier!</a>
                     </div>
           </div>
           
@@ -77,6 +78,7 @@
                     <div class="size-sample medium">M</div>
                     <div class="size-sample large">L</div>
                     <div class="size-sample extra-large">XL</div>
+                    <a href="/" class="cta-btn">Ajouter panier!</a>
                     </div>
                     </div>
           </div>
@@ -102,8 +104,11 @@
                     <div class="size-sample medium">M</div>
                     <div class="size-sample large">L</div>
                     <div class="size-sample extra-large">XL</div>
+                    <a href="/" class="cta-btn">Ajouter panier!</a>
                     </div>
+                    
                     </div>
+                    
           </div>
           
       </div>
