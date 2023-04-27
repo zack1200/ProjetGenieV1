@@ -16,9 +16,9 @@
     position: fixed;
     top: 200px;
     left: 0;
-    height: 400px;
+    height: 450px;
     width: 100px;
-    background-color: rgb(187, 55, 55);
+    background-color: #38B6FF;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,21 +42,74 @@
     transition: background-color 0.3s;
 }
 
-.navbar a:hover {
-    background-color: #444;
-}
+
 
 .navbar a i {
     font-size: 24px;
     margin-bottom: 5px;
 }
 .tit{
-    background-color: aqua;
+    background-color: #38B6FF;
     border-radius: 20px;
     text-align: center;
     width: 800px;
     height: 70px;
     padding-top: 10px;
+    
+}
+.Collection{
+    background-color: #F5F7FA;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width: auto;
+    height: auto;
+    padding-top: 10px;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+.Reservation{
+    background-color: #F5F7FA;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width:auto;
+    height: auto;
+    padding-top: 10px;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+.livree{
+    background-color: #7AE582;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width:auto;
+    height: auto;
+    padding-top: 10px;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+
+.Recherche{
+    background-color: #38B6FF;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width: 300px;
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 50px;    
+}
+.pRecherche{
+    background-color: #fafafa;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+    padding-left: 50px; 
 }
 .containerTit {
     display: flex;
@@ -65,3 +118,139 @@
     text-align: center;
     
   }
+  .option{
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .optiontitre{
+    text-transform: uppercase;
+  }
+  .suspendre{
+    color: red;
+    text-decoration: none;
+  }
+  .suspendre:hover{
+    color: red;
+  }
+
+  .color-sample {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+    align-items: center;
+  }
+
+  .color-sample.red {
+    background-color: red;
+  }
+  .color-sample.blue {
+    background-color: blue;
+  }
+  .color-sample.green {
+    background-color: green;
+  }
+  .color-sample.yellow {
+    background-color: yellow;
+  }
+  .color-sample.purple {
+    background-color: purple;
+  }
+  .size{
+    text-transform: uppercase;
+  }
+  .date{
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+    white-space: nowrap;
+  }
+  .inf{
+    align-items: center;
+    vertical-align: middle;
+  }
+  .logo {
+    display: inline-block;
+    width:100px;
+    height:100px;
+    size: 100px;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+  .Form{
+    background-color: #F5F7FA;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width: 300px;
+    height: auto;
+    
+    padding-top: 10px;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+  .date{
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-transform: uppercase;
+  }
+  textarea {
+    height: 150px;
+    width: 600px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    
+}
+input{
+  padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-transform: uppercase;
+}
+.ajtItem{
+  text-align: center;
+}
+.bggg{
+  background-color: #00a6fb;
+  border-radius: 10px;    
+  
+  padding-top: 10px;
+  padding-left: 90px;
+ 
+}
+h5{
+  color: black;
+  text-transform: uppercase;
+}
+.bgcolor{
+  color: #38B6FF;
+  background-color: #38B6FF;
+}
+
+.color-picker-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.color-picker-container label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+
+
+

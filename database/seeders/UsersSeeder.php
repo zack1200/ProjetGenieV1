@@ -21,12 +21,14 @@ class UsersSeeder extends Seeder
                 'nom' => 'zakaria',
                 'email' =>'zakaria@gmail.com',
                 'password' =>Hash::make('123'),
+                'role'=>'user',
                 'created_at'=> date('Y-m-d H-i-s'),  
             ],
             [
                 'nom' => 'zakaria',
                 'email' =>'zakaria2@gmail.com',
                 'password' =>Hash::make('123'),
+                'role'=>'admin',
                 'created_at'=> date('Y-m-d H-i-s'),  
             ]
         ]);
