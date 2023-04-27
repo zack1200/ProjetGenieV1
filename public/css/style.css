@@ -286,6 +286,19 @@
   border-radius: 50%;
   margin-right: 10px;
   display: inline-block;
+  font-size: 20px;
+  text-align: center;
+  
+}
+.color-sample1 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+  
 }
 
 /* couleurs d'échantillon */
