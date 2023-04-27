@@ -32,9 +32,8 @@ Route::get('/Add', function () {
     return view('Admin/AjouterCompagne');
 });
 
-
-
 Route::post("/login",[UsersController::class,'login']);
+
 Route::get('/register', function () {
     return view('Connexion/register');
 });
