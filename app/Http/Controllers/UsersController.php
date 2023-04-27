@@ -66,7 +66,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         try {
             $user = new User($request->all());

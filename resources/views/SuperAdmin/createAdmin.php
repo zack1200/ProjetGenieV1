@@ -9,17 +9,10 @@
 </head>
 <body>
 
-@if(isset($errors) && $errors->any())
-    <div class="alert alert-danger">
-        @foreach($errors->all() as $error)
-          <p>{{ $error }}</p>
-        @endforeach
-    </div>
-@endif
+
 
   
   <form method="post" action="{{ route ('users.store') }}">
-    @csrf
       <div class="form-group">
       <label for="nomUser" >Nom de l'utilisateur</label>
       <input type="text" class="form-control" id="nomUser" placeholder="Entrer nom" name="nom" >
@@ -31,8 +24,13 @@
       </div>
 
       <div class="form-group">
-      <label for="mdpUser" >Mot de passe de l'utilisateur</label>
-      <input type="text" class="form-control" id="mdpUser" placeholder="Entrer un mot de passe" name="mdp">
+      <label for="passwordUser" >Mot de passe de l'utilisateur</label>
+      <input type="text" class="form-control" id="passwordUser" placeholder="Entrer un mot de passe" name="password">
+      </div>
+
+      <div class="form-group">
+      <label for="roleUser" >Role : Admin</label>
+      <input type="text" class="form-control" id="roleUser" placeholder="Entrer le mot Admin" name="role">
       </div>
 
       <button type="submit" class="btn btn-primary">Enregistrer</button>
