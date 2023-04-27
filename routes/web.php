@@ -27,3 +27,10 @@ Route::get('/register', function () {
 });
 Route::post("/register",[UsersController::class,'register']);
 
+Route::get("/SuperAdmin",[UsersController::class,'index']);
+
+Route::get('/SuperAdmin/createAdmin',
+[UsersController::class, 'create'])->name('SuperAdmin.createAdmin');
+
+Route::delete('/users/{id}/delete',
+[UsersController::class, 'destroy'])->name('users.destroy');

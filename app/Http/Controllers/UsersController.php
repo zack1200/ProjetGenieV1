@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Log;
 
 class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * 
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $users = User::all();
+
+        return view('SuperAdmin/home', compact('users'));
     }
     //debut
     function login(Request $req)
@@ -56,7 +60,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return View('SuperAdmin.createAdmin');
     }
 
     /**
@@ -64,7 +68,16 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $user = new User($request->all());
+            $user->save();
+        }
+
+        catch (\Throwable $e) {
+            //Gerer erreur
+            Log::debug($e);
+        }
+        return redirect()->route('SuperAdmin/home');
     }
 
     /**
@@ -93,9 +106,23 @@ class UsersController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        try {
+            $user = User::findOrFail($id);
+
+            $user->delete();
+
+           return redirect()->route('SuperAdmin/home')->with('message', "Suppression de usager numéro " . $user->id . " réussie"); 
+        }
+        catch(\Throwable $e) {
+            Log::debug($e);
+           return redirect()->route('SuperAdmin/home')->withErrors(['Suppression echouée']);
+        }
+            return redirect()->route('SuperAdmin/home');
     }
 }
