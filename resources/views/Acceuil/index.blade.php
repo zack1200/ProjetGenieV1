@@ -30,9 +30,9 @@
                     </div>
                 </div>
             </div>
-                
-            @if (isset($compaign->items) && count($compaign->items))
+             @if (isset($compaign->items) && count($compaign->items))
             @foreach ($compaign->items as $itemcompaign) 
+            
         <div class="container col-xl-12">
       <div class="row align-items-center text-center  py-3">
         <div class="col-xl-4 bggg py-5">
@@ -41,29 +41,23 @@
           </div>
           <div class=" col-xl-12 col-md-4 col-sm-4 Desc py-4 ">
           <h4>{{$itemcompaign->nom}}</h4>
-          @endforeach
-          @endif  
           <h5>Couleurs disponibles</h5>
                     <div class="container">
-                    @if (isset($itemcompaign->colors) && count($itemcompaign->colors))
-                    @foreach ($itemcompaign->colors as $itemColor) 
+                     @foreach ($itemcompaign->color as $itemColor) 
                 <div class="color-sample1 " style="background-color: {{$itemColor->CodeCouleur}}"></div>
-                <div class="color-sample red"></div>
-                
-                        @endforeach
-                        @endif
+                      @endforeach
+                        
                     </div>
                     
                     <div class="container">
                     <h5>Échantillons de taille</h5>
-                    <div class="size-sample ">S</div>
-                    <div class="size-sample ">M</div>
-                    <div class="size-sample ">L</div>
-                    <div class="size-sample ">XL</div>
+                    
                     </div>
           </div>
           
         </div>
+        @endforeach
+          @endif 
 
        
 
@@ -119,7 +113,8 @@
           </div>
           
       </div>
-      
+
+         
       
     
 

@@ -65,9 +65,9 @@
 
                                   <div class="col-md-6 mb-6">
                                   <div class="color-picker-container">
-    <label for="colors">Choisir les couleurs :</label>
-    <input type="color" id="colors" name="colors[]" multiple>
-  </div>
+                                  <label for="colors">Choisir les couleurs :</label>
+                                  <input type="color" id="colors" name="colors[]" multiple>
+                                  </div>
 
                                   </div>
                                  

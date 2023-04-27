@@ -49,6 +49,12 @@ class CompaignsController extends Controller
         $previousCompaigns = Compaign::where('end_date', '<=', date('Y-m-d'))
                                      ->orderBy('end_date', 'desc')
                                      ->get();
+       
+
+
+
+        
+        
 
        
 

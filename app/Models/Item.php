@@ -18,5 +18,8 @@ class Item extends Model
     public function color(){
         return        $this->belongsToMany('App\Models\Color');    
     }
+    public function taille(){
+        return        $this->belongsToMany('App\Models\Taille');    
+    }
     use HasFactory;
 }
