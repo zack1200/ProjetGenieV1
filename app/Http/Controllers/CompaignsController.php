@@ -8,6 +8,7 @@ use App\models\Item;
 use App\models\Color;
 use App\models\Taille;
 use App\Http\Requests\CompaignRequest;
+use Illuminate\Support\Facades\Log;
 
 class CompaignsController extends Controller
 {
@@ -49,16 +50,26 @@ class CompaignsController extends Controller
         $previousCompaigns = Compaign::where('end_date', '<=', date('Y-m-d'))
                                      ->orderBy('end_date', 'desc')
                                      ->get();
-       
+       return  View('Acceuil.index', compact('compaigns', 'previousCompaigns'));    
+   /* }
+    else
+    {
+        return redirect('/login');
+    }*/
+}
+public function showA( Request $req)
+{
+    /*if($req->session()->has('user'))
+    {*/
+        $compaigns = Compaign::where('start_date', '<=', date('Y-m-d'))
+                             ->where('end_date', '>=', date('Y-m-d'))
+                             ->get();
 
-
-
+        $previousCompaigns = Compaign::where('end_date', '<=', date('Y-m-d'))
+                                     ->orderBy('end_date', 'desc')
+                                     ->get();
         
-        
-
-       
-
-        return  View('Acceuil.index', compact('compaigns', 'previousCompaigns'));    
+       return  View('Admin.home', compact('compaigns', 'previousCompaigns'));    
    /* }
     else
     {
@@ -80,7 +91,23 @@ class CompaignsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try{
+            $campagne = Compaign::findOrFail($id);
+            $campagne->nom = $request->nom;
+            $campagne->start_date = $request->start_date;
+            $campagne->end_date = $request->end_date;      
+            $campagne ->save();
+            return "done";
+        }
+
+        catch(\Throwable $e){
+            //Gerer l erreur 
+            Log::debug($e);
+            Log::debug($e->getMessage());
+
+            return "Fail"; 
+
+        }
     }
 
     /**

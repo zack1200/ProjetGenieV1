@@ -18,6 +18,11 @@ class ColorsSeeder extends Seeder
                 'nom' => 'zakaria',
                 'CodeCouleur' => '#1A171B',               
                 'created_at'=> date('Y-m-d H-i-s'),  
+            ],
+            [
+                'nom' => 'zakaria',
+                'CodeCouleur' => '#1A171B',               
+                'created_at'=> date('Y-m-d H-i-s'),  
             ]
         ]);
     }
