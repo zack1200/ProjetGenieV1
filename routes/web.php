@@ -28,6 +28,9 @@ Route::get('/reservation', function () {
 Route::get('/livraison', function () {
     return view('Admin/livraison');
 });
+Route::get('/Add', function () {
+    return view('Admin/AjouterCompagne');
+});
 
 
 

@@ -47,7 +47,7 @@
                     <div class="container">
                     @if (isset($itemcompaign->colors) && count($itemcompaign->colors))
                     @foreach ($itemcompaign->colors as $itemColor) 
-                <div class="color-sample " style="background-color: {{$itemColor->CodeCouleur}}"></div>
+                <div class="color-sample1 " style="background-color: {{$itemColor->CodeCouleur}}"></div>
                 <div class="color-sample red"></div>
                 
                         @endforeach
