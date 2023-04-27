@@ -17,7 +17,7 @@ class ItemsSeeder extends Seeder
                 'nom' => 'admin',   
                 'max_items' => '4', 
                 'mookup'=>'https://www.jokesforfunny.com/wp-content/uploads/2021/06/0596bdb89b60fe771acd2f5972a9d3e3-1158x1536.jpg',
-                'price' => '10',
+                'prix' => '10',
                 'created_at'=> date('Y-m-d H-i-s'),  
             ]
         ]);

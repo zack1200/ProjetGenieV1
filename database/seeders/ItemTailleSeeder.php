@@ -12,7 +12,7 @@ class ItemTailleSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('items')->insert([
+        DB::table('taille_item')->insert([
             [
                 'item_id' => 1,   
                 'taille_id' => 1,                 

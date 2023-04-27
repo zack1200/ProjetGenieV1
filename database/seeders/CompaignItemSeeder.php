@@ -12,7 +12,7 @@ class CompaignItemSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('compaigns')->insert([
+        DB::table('compaign_item')->insert([
             [
                 'item_id' => 1,
                 'compaign_id' => 1,                   

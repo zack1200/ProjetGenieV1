@@ -18,42 +18,54 @@
 </header>
 
 
+
+
 <div class="container  " >
                 <div class="row align-items-center text-center">
                     <div class="col-xl-12 col-md-12 col-sm-12 tit ">
-                        <h1>Merch Session Hiver 2023</h1>
+                    @foreach ($compaigns as $compaign)
+                      <h1>{{$compaign->nom}} </h1>
+                    @endforeach
+                        
                     </div>
                 </div>
             </div>
                 
-            
+            @if (isset($compaign->items) && count($compaign->items))
+            @foreach ($compaign->items as $itemcompaign) 
         <div class="container col-xl-12">
       <div class="row align-items-center text-center  py-3">
         <div class="col-xl-4 bggg py-5">
           <div class=" offset-xl-2 col-xl-4 col-md-4 col-sm-4 bgg py-5 px-5 ">
-          <img src="{{asset('img/Model/t-shirt.png') }}" alt="Logo" width="100px" height="100px">
-                                
+          <img src="{{$itemcompaign->mookup}}" alt="Logo" width="100px" height="100px">                        
           </div>
           <div class=" col-xl-12 col-md-4 col-sm-4 Desc py-4 ">
-          <h4>Merch Session Hiver 2020</h4>
+          <h4>{{$itemcompaign->nom}}</h4>
+          @endforeach
+          @endif  
           <h5>Couleurs disponibles</h5>
                     <div class="container">
+                    @if (isset($itemcompaign->colors) && count($itemcompaign->colors))
+                    @foreach ($itemcompaign->colors as $itemColor) 
+                <div class="color-sample " style="background-color: {{$itemColor->CodeCouleur}}"></div>
                 <div class="color-sample red"></div>
-                <div class="color-sample blue"></div>
-                <div class="color-sample green"></div>
-                <div class="color-sample yellow"></div>
-                <div class="color-sample purple"></div>
+                
+                        @endforeach
+                        @endif
                     </div>
+                    
                     <div class="container">
                     <h5>Échantillons de taille</h5>
-                    <div class="size-sample small">S</div>
-                    <div class="size-sample medium">M</div>
-                    <div class="size-sample large">L</div>
-                    <div class="size-sample extra-large">XL</div>
+                    <div class="size-sample ">S</div>
+                    <div class="size-sample ">M</div>
+                    <div class="size-sample ">L</div>
+                    <div class="size-sample ">XL</div>
                     </div>
           </div>
           
         </div>
+
+       
 
          
         <div class="col-xl-4 bggg py-5 ">

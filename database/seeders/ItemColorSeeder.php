@@ -12,7 +12,7 @@ class ItemColorSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('items')->insert([
+        DB::table('color_item')->insert([
             [
                 'item_id' => 1,   
                 'color_id' => 1, 

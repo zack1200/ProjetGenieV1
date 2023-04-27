@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CompaignsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/', function () {
-    return view('Admin/reservation');
-});
+
 Route::get('/login', function () {
     return view('Connexion/login');
 });
@@ -29,10 +28,14 @@ Route::get('/reservation', function () {
 Route::get('/livraison', function () {
     return view('Admin/livraison');
 });
-Route::post("/login",[UsersController::class,'login']);
 
+
+
+Route::post("/login",[UsersController::class,'login']);
 Route::get('/register', function () {
     return view('Connexion/register');
 });
 Route::post("/register",[UsersController::class,'register']);
+
+Route::get('/',[CompaignsController::class,'show']);
 
