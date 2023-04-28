@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\models\Compaign;
+use App\models\Item;
+use Illuminate\Support\Facades\Log;
+
 class ItemsController extends Controller
 {
     /**
@@ -51,7 +55,24 @@ class ItemsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try{
+            $item = Item::findOrFail($id);
+            $item->nom = $request->nom;
+            $item->max_items = $request->max_items;
+            $item->mookup = $request->mookup;   
+            $item->prix = $request->prix;    
+            $item ->save();
+            return "done";
+        }
+
+        catch(\Throwable $e){
+            //Gerer l erreur 
+            Log::debug($e);
+            Log::debug($e->getMessage());
+
+            return "Fail"; 
+
+        }
     }
 
     /**

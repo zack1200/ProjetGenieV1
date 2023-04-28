@@ -19,9 +19,7 @@ use App\Http\Controllers\CompaignsController;
 Route::get('/login', function () {
     return view('Connexion/login');
 });
-Route::get('/home', function () {
-    return view('Admin/home');
-});
+
 Route::get('/reservation', function () {
     return view('Admin/reservation');
 });
@@ -41,4 +39,10 @@ Route::get('/register', function () {
 Route::post("/register",[UsersController::class,'register']);
 
 Route::get('/',[CompaignsController::class,'show']);
+Route::get('/home',[CompaignsController::class,'showA']);
+
+Route::patch('/updateCampagne/{campagne}',[CompaignsController::class,'update'])->name ('campaign.update');
+Route::patch('/updateItem/{id}',[ItemsController::class,'update'])->name ('item.update');
+
+
 

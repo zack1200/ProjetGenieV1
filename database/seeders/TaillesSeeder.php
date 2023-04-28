@@ -14,15 +14,15 @@ class TaillesSeeder extends Seeder
     {
         DB::table('tailles')->insert([
             [
-                'taille' => 'S',                
+                'nomtaille' => 'S',                
                 'created_at'=> date('Y-m-d H-i-s'),  
             ],
             [
-                'taille' => 'M',                
+                'nomtaille' => 'M',                
                 'created_at'=> date('Y-m-d H-i-s'),  
             ],
             [
-                'taille' => 'L',                
+                'nomtaille' => 'L',                
                 'created_at'=> date('Y-m-d H-i-s'),  
             ],
         ]);

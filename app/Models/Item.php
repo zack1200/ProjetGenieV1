@@ -10,7 +10,7 @@ use app\Models\Taille;
 
 class Item extends Model
 {
-    use HasFactory;
+    
     protected $fillable =['nom','max_items','mookup','prix'];
     public function items(){
         return        $this->belongsToMany('App\Models\Compaign');    
@@ -18,8 +18,13 @@ class Item extends Model
     public function color(){
         return        $this->belongsToMany('App\Models\Color');    
     }
-    public function taille(){
+    /*public function taille(){
         return        $this->belongsToMany('App\Models\Taille');    
+    }*/
+    public function taille(){
+        return $this->belongsToMany('App\Models\Taille', 'item_taille');    
     }
+    
+  
     use HasFactory;
 }
