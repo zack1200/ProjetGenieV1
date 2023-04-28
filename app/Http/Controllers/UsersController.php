@@ -46,6 +46,7 @@ class UsersController extends Controller
             $users->nom=$req->nom;
             $users->email=$req->email;            
             $users->password= Hash::make($req->password);
+            $users->role=$req->role;
             $users->save();
              return redirect('/login');
     }

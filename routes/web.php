@@ -42,5 +42,7 @@ Route::get('/',[CompaignsController::class,'show']);
 Route::get('/home',[CompaignsController::class,'showA']);
 
 Route::patch('/updateCampagne/{campagne}',[CompaignsController::class,'update'])->name ('campaign.update');
+Route::patch('/updateItem/{id}',[ItemsController::class,'update'])->name ('item.update');
+
 
 

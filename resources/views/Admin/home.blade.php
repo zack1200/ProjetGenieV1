@@ -51,8 +51,10 @@
                                 </div>
                                 <div class="col-md-4 option">
                                     <br>
+                                    <a href="{{ route('item.update', [$itemcompaign]) }}"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" >
+                                        <img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px">                            
+                                    </a>  
                                     
-                                    <img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px">
                                    
 
 
@@ -92,6 +94,33 @@
                   </div>
                 </div>
               </div>
+
+              <!-- fin items model-->
+
+              <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modification de la campagne</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>  
+                    <div class="modal-body">
+                    <form action="{{route('item.update', [$itemcompaign]) }}" method="post">
+
+                             @csrf    
+                                @method('PATCH')
+                                <label for="fname">Nom de campagne</label>
+                                <input type="text" id="nom" name="nom" value="{{ old('nom', $itemcompaign->nom) }}">
+                                                                  
+                                <button class="button">modifier</button>
+                            </form>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
             
             
             @endsection
