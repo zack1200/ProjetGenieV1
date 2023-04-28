@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nom',100);
             $table->string('max_items',2);
-            $table->string('mookup',2999)->nullable();
+            $table->string('mookup',2999);
             $table->float('prix')->nullable();
+            $table->boolean('actif');
             $table->timestamps();
         });
     }

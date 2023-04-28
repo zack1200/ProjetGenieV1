@@ -109,6 +109,28 @@ public function showA( Request $req)
 
         }
     }
+    public function updateActif(Request $request, string $id)
+{
+    try {
+        $campagne = Compaign::findOrFail($id);
+        $campagne->actif = filter_var($request->actif, FILTER_VALIDATE_BOOLEAN);
+        
+        $campagne->save();
+        
+        return "done";
+    }
+    catch(\Throwable $e) {
+        // Gérer l'erreur
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return "Fail"; 
+    }
+}
+
+    
+
+
 
     /**
      * Remove the specified resource from storage.

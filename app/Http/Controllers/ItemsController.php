@@ -21,10 +21,32 @@ class ItemsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        try {
+            $item = new Item();
+            $item->nom = $request->nom;
+            $item->max_items = $request->max_items;
+            $item->mookup = $request->mookup;
+            $item->actif = filter_var($request->actif, FILTER_VALIDATE_BOOLEAN);
+    
+            $compaign = Compaign::find($request->compaign_id);
+            $item->campaigns()->attach($compaign);
+    
+            $item->save();
+        } catch(\Throwable $e) {
+            // Gérer l'erreur 
+            Log::debug($e);
+            Log::debug($e->getMessage());
+    
+            return "Fail"; 
+        }
     }
+
+
+        
+
+    
 
     /**
      * Store a newly created resource in storage.
@@ -60,9 +82,10 @@ class ItemsController extends Controller
             $item->nom = $request->nom;
             $item->max_items = $request->max_items;
             $item->mookup = $request->mookup;   
-            $item->prix = $request->prix;    
+              
+            $item->actif = filter_var($request->actif, FILTER_VALIDATE_BOOLEAN);
             $item ->save();
-            return "done";
+            return redirect('/home');
         }
 
         catch(\Throwable $e){
@@ -74,6 +97,7 @@ class ItemsController extends Controller
 
         }
     }
+    
 
     /**
      * Remove the specified resource from storage.
