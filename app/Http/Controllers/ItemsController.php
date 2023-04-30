@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\models\Compaign;
 use App\models\Item;
+use App\models\Color;
 use Illuminate\Support\Facades\Log;
 
 class ItemsController extends Controller
@@ -73,8 +74,10 @@ class ItemsController extends Controller
     public function show(Request $request)
 {
     try {
-        $items = Item::all(); // récupère toutes les données de la table items
-        return view('Admin.AjouterCompagne', compact('items')); 
+        $items = Item::all();
+        $colors = Color::all(); // récupère toutes les données de la table items
+            
+        return view('Admin.AjouterCompagne', compact('items','colors')); 
 
     } catch (\Throwable $e) {
         //Gérer l'erreur 

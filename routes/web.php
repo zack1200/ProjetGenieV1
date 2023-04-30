@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CompaignsController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\ColorsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,8 +58,12 @@ Route::get('/supprimerI/{item}',[ItemsController::class,'destroy']);
 Route::post('AjouterCampagne',[CompaignsController::class,'create'])->name('campagne.create'); 
 
 Route::post('/campaign/ajouter', [CompaignsController::class, 'ajouterCampagne'])->name('campaign.ajouter');
-
+//afficher les item enregistrr 
 Route::get('/Add', [ItemsController::class, 'show']);
+//ajouter des couleurs
+Route::post('/campaign/create', [ColorsController::class, 'create'])->name('color.create');
+//afficher les couleurs
+
 
 
 
