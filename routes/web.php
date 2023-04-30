@@ -51,6 +51,19 @@ Route::patch('/updateItem/{id}',[ItemsController::class,'update'])->name ('item.
 Route::patch('/updateActif/{id}',[ItemsController::class,'updateActif'])->name ('item.updateActif');
 //ajouter un item a une campagne 
 Route::post('/create', [ItemsController::class, 'create'])->name('item.create');
+//supprimer item 
+Route::get('/supprimerI/{item}',[ItemsController::class,'destroy']);
+//ajouter une campagne 
+Route::post('AjouterCampagne',[CompaignsController::class,'create'])->name('campagne.create'); 
+
+Route::post('/campaign/ajouter', [CompaignsController::class, 'ajouterCampagne'])->name('campaign.ajouter');
+
+Route::get('/Add', [ItemsController::class, 'show']);
+
+
+
+
+
 
 
 

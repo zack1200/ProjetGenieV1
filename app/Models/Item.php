@@ -11,10 +11,10 @@ use app\Models\Taille;
 
 class Item extends Model
 {
-    
+    protected $table = 'items';
     protected $fillable = ['nom', 'max_items', 'mookup', 'actif'];
-    
-    public function campaigns()
+    use HasFactory;
+    public function compaigns()
     {
         return $this->belongsToMany('App\Models\Compaign');    
     }
@@ -29,5 +29,5 @@ class Item extends Model
         return $this->belongsToMany('App\Models\Taille', 'item_taille');    
     }
     
-    use HasFactory;
+    
 }

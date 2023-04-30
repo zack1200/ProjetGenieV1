@@ -29,12 +29,23 @@ class ItemsController extends Controller
             $item->max_items = $request->max_items;
             $item->mookup = $request->mookup;
             $item->actif = filter_var($request->actif, FILTER_VALIDATE_BOOLEAN);
-    
-            $compaign = Compaign::find($request->compaign_id);
-            $item->campaigns()->attach($compaign);
-    
             $item->save();
-        } catch(\Throwable $e) {
+            try{
+                $compaign = Compaign::find($request->compaign_id);
+            $item->compaigns()->attach($compaign);    
+            $item->save();
+            }
+            catch (\Throwable $e){
+                Log::debug($e);
+                return "relation failed ";
+            }
+
+            return "ok";
+        }
+            
+
+
+         catch(\Throwable $e) {
             // Gérer l'erreur 
             Log::debug($e);
             Log::debug($e->getMessage());
@@ -59,10 +70,22 @@ class ItemsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
+    public function show(Request $request)
+{
+    try {
+        $items = Item::all(); // récupère toutes les données de la table items
+        return view('Admin.AjouterCompagne', compact('items')); 
+
+    } catch (\Throwable $e) {
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+        return "Fail";
     }
+}
+
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -81,7 +104,20 @@ class ItemsController extends Controller
             $item = Item::findOrFail($id);
             $item->nom = $request->nom;
             $item->max_items = $request->max_items;
-            $item->mookup = $request->mookup;   
+            
+            $uploadedFile = $request->file('img');
+            
+            $nomFichierUnique = md5(str_replace(' ', '_', $item->nom) . '-' . time()) . '.' . $uploadedFile->extension();
+
+        try {
+            $request->img->move(public_path('/img/model'), $nomFichierUnique);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
+            Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+            }
+            
+        $item->mookup = $nomFichierUnique;
+        $item ->save();  
               
             $item->actif = filter_var($request->actif, FILTER_VALIDATE_BOOLEAN);
             $item ->save();
@@ -104,6 +140,19 @@ class ItemsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try{
+            Item::destroy($id);
+            return "supprimer ";
+
+        }
+        catch(\Throwable $e){
+            //Gerer l erreur 
+            Log::debug($e);
+            Log::debug($e->getMessage());
+
+            return "Fail"; 
+
+        }
+
     }
 }
