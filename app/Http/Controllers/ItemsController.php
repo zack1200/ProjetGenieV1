@@ -53,7 +53,7 @@ class ItemsController extends Controller
                 return "relation failed ";
             }
 
-            return "ok";
+            return redirect()->back();
         }
             
 
@@ -67,28 +67,20 @@ class ItemsController extends Controller
         }
     }
 
-     public function createCampagneItemColorSize(Request $request)
+    public function createCampagneItemColorSize(Request $request)
 {
     try {
         $compaign = Compaign::find($request->compaign_id);
         $item = Item::find($request->item_id);
-        $colors = $request->color_id;
-        $tailles = $request->taille_id;
+        $colors = $request->input('couleur', []);
+        $tailles = $request->input('taille', []);
         $item->compaigns()->attach($compaign);
+        $item->color()->attach($colors);
+        $item->taille()->attach($tailles);
         $item->max_items = $request->max_items;
         $item->save();
 
-        // Attache les couleurs sélectionnées à l'item
-        if (!empty($colors)) {
-            $item->color()->sync($colors);
-        }
-
-        // Attache les tailles sélectionnées à l'item
-        if (!empty($tailles)) {
-            $item->taille()->sync($tailles);
-        }
-
-        return "relation réussie ";
+        return redirect()->back();
     } catch (\Throwable $e) {
         // Gérer l'erreur 
         Log::debug($e);
@@ -97,6 +89,7 @@ class ItemsController extends Controller
         return "Fail";
     }
 }
+
 
     
 
@@ -172,7 +165,7 @@ class ItemsController extends Controller
               
             $item->actif = filter_var($request->actif, FILTER_VALIDATE_BOOLEAN);
             $item ->save();
-            return redirect('/home');
+            return redirect()->back();
         }
 
         catch(\Throwable $e){
@@ -194,7 +187,7 @@ class ItemsController extends Controller
     {
         try{
             Item::destroy($id);
-            return "supprimer ";
+            return redirect()->back();
 
         }
         catch(\Throwable $e){
@@ -215,7 +208,7 @@ class ItemsController extends Controller
         
         $item->compaigns()->detach($compaign);
 
-        return "detacher ";
+        return redirect()->back();
 
     }
     catch(\Throwable $e){

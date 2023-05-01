@@ -51,7 +51,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>  
                     <div class="modal-body">
-                    <form action="{{Route('item.createCampagneItemColorSize')}}" method="post">
+                          <form action="{{Route('item.createCampagneItemColorSize')}}" method="post">
                               @csrf
 
                               <label for="max_items">max_items</label>
@@ -64,26 +64,26 @@
                                   @endforeach
                               </select>
 
-                              <label>Sélectionner une ou plusieurs couleurs :</label>
-                          @foreach($couleurs as $couleur)
-                              <div>
-                                  <input type="checkbox" id="color_{{ $couleur->id }}" name="colors[]" value="{{ $couleur->id }}">
-                                  <label for="color_{{ $couleur->id }}">{{ $couleur->nom }}</label>
-                              </div>
-                          @endforeach
+                              <label for="couleur">Sélectionner une couleur :</label>
+                              <select name="couleur" id="couleur">
+                                  <option value="">Sélectionner une couleur</option>
+                                  @foreach($couleurs as $couleur)
+                                      <option value="{{ $couleur->id }}">{{ $couleur->nom }}</option>
+                                  @endforeach
+                              </select>
 
+                              <label for="taille">Sélectionner une taille :</label>
+                              <select name="taille" id="taille">
+                                  <option value="">Sélectionner une taille</option>
+                                  @foreach($tailles as $taille)
+                                      <option value="{{ $taille->id }}">{{ $taille->nomtaille }}</option>
+                                  @endforeach
+                              </select>
 
-                          <label>Sélectionner une ou plusieurs tailles :</label>
-                          @foreach($tailles as $taille)
-                              <div>
-                                  <input type="checkbox" id="taille_{{ $taille->id }}" name="tailles[]" value="{{ $taille->id }}">
-                                  <label for="taille_{{ $taille->id }}">{{ $taille->nomtaille }}</label>
-                              </div>
-                          @endforeach
+                              <input type="hidden" id="compaign_id" name="compaign_id" value="{{$compaign->id}}"else>
+                              <button class="button">Ajouter</button>
+                          </form>
 
-                          <input type="hidden" id="compaign_id" name="compaign_id" value="{{$compaign->id}}"else>
-                          <button class="button">Ajouter</button>
-                      </form>
                       </div>
                     </div>
                   </div>
@@ -108,7 +108,7 @@
                         <div class="container Collection">
                             <div class="row">
                                 <div class="col-md-2">
-                                <img src="{{ asset('img/model/' . $itemcompaign->mookup) }}" alt="Logo" width="100px" height="100px">
+                                <img src="{{ asset('img/model/' . $itemcompaign->mookup) }}" alt="Logo" width="100px" height="90px">
                                 </div>
                                 
                                 <div class="col-md-6">
@@ -357,7 +357,7 @@
                           @foreach($couleurs as $couleur)
                               <div>
                                   <input type="checkbox" id="color_{{ $couleur->id }}" name="colors[]" value="{{ $couleur->id }}">
-                                  <label for="color_{{ $couleur->id }}">{{ $couleur->nom }}</label>
+                                  <label for="color_{{ $couleur->id }}">{{ $couleur->nom }}  </label>
                               </div>
                           @endforeach
 
@@ -366,7 +366,7 @@
                           @foreach($tailles as $taille)
                               <div>
                                   <input type="checkbox" id="taille_{{ $taille->id }}" name="tailles[]" value="{{ $taille->id }}">
-                                  <label for="taille_{{ $taille->id }}">{{ $taille->nomtaille }}</label>
+                                  <label for="taille_{{ $taille->id }}">{{ $taille->nomtaille }}  </label>
                               </div>
                           @endforeach
 
