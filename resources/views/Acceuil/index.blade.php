@@ -43,7 +43,7 @@
       <div class="row align-items-center text-center  py-3">
         <div class="col-xl-4 bggg py-5">
           <div class=" offset-xl-2 col-xl-4 col-md-4 col-sm-4 bgg py-5 px-5 ">
-          <img src="{{$itemcompaign->mookup}}" alt="Logo" width="100px" height="100px">                        
+          <img src="{{ asset('img/model/' . $itemcompaign->mookup) }}" alt="Logo" width="100px" height="100px">                              
           </div>
           <div class=" col-xl-12 col-md-4 col-sm-4 Desc py-4 ">
           <h4>{{$itemcompaign->nom}}</h4>

@@ -1,57 +1,218 @@
 @extends('layouts.app')
+
 @section('contenuDuMillieu')
-                            <div class="container ">
-                            <div class="row">
-                                <h1>Ajouter une Camapgne</h1>                           
-                <div class="col-xl-12 col-md-4">
-                        <form class="needs-validation" novalidate>
-                                <div class="row">
-                                  <div class="col-md-4 mb-3">
-                                    <label for="validationCustom01">Nom de la Camapgne</label>
-                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nome de la campagne" value="" required>
-                                    
-                                  </div>
-                                  
-                                  
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-4 mb-3">
-                                    <label for="validationCustom03">Date debut</label>
-                                    <input type="date" class="date" id="start_date" name="start_date" placeholder="date debut" required>
-                                    
-                                  </div>
-                                  <div class="col-md-4 mb-3">
-                                    <label for="validationCustom04">Date fin</label>
-                                    <input type="date" class="date" id="end_date" name="end_date"  placeholder="date de fin" required>
-                                    
-                                  </div>
-                                 
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-6 mb-3">
-                                    <label for="validationCustom03">Description</label>
-                                    <br>
-                                    <textarea id="description" name="description" id="description" ></textarea>                                    
-                                  </div>
-                                  <div class="col-md-6 mb-3 py-4">
-                                  <button type="button" class="btn bgcolor " data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                    <img src="{{asset('img/icon/plus.png') }}" alt="Logo" width="100px" height="100px">
-                                    <h5>ajouter un item</h5>
-                                    </button>
+  <div class="container">
+    <div class="row">
+      <div class="offset-xl-2 col-xl-10 col-md-4">
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <button type="button" class="Ajt" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+              <img src="{{asset('img/icon/campagne.png') }}" alt="Logo" width="100px" height="100px">
+              <h5>Programmer une campagne </h5>
+            </button>
+          </div>
+          <div class="col-md-3 mb-3">
+            <button type="button" class="Ajt" style="" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+              <img src="{{asset('img/icon/nouveau.png') }}" alt="Logo" width="100px" height="100px">
+              <h5>Ajouter un item </h5>
+            </button>                            
+          </div>
+          <div class="col-md-3 mb-3">
+            <button type="button" class="Ajt" style="" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+              <img src="{{asset('img/icon/pantone.png') }}" alt="Logo" width="100px" height="100px">
+              <h5>Ajouter une couleur </h5>
+            </button>                        
+          </div>
+          <div class="col-md-3 mb-3">
+            <button type="button" class="Ajt" style="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <img src="{{asset('img/icon/utilisateur.png') }}" alt="Logo" width="100px" height="100px">
+              <h5>Afficher les utilisateur </h5>
+            </button>                        
+          </div>
+        </div>
+      </div>
+    </div>
 
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            
+    </div>
+       
 
-                                <button class="btn btn-primary" type="submit">valider </button>
-                              </form>
+    @if (isset($items) && count($items))
+    @foreach ($items as $item) 
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-md-12 col-sm-12">
+                    <div class="container Collection" style="background-color: #F5F7FA;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="{{ asset('img/model/' . $item->mookup) }}" alt="Logo" width="100px" height="100px">
+                            </div>
+                            
+                            <div class="col-md-4">
+                            
+                                <h5 class="optiontitre"><b>{{$item->nom}}</b></h5>
+                            </div>
+                            <div class="col-md-3 option">
+                                <br>
+                                <a href="{{ route('item.update', [$item]) }}"  data-bs-toggle="modal" data-bs-target="#staticBackdrop4" >
+                                        <img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px">                            
+                                    </a>   
+                                <a href="/supprimerI/{{$item['id']}}" class=" "><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px">
+                                </a>
+                            </div>
                         </div>
+                        
+                    </div>
+                </div>
+                @endforeach
+@else
+    <p>Pas d'élément</p>
+@endif
+@if (isset($colors) && count($colors))
+    <div class="col-xl-6 col-md-12 col-sm-12">
+        @foreach ($colors as $color)
+            <div class="container Collection2" style="background-color: {{$color->CodeCouleur}};">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5 class="optiontitre"><b>{{$color->nom}}</b></h5>
+                    </div>
+                    <div class="col-md-4">
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {{$color->CodeCouleur}};"></div>                                
+                    </div>
+                    <div class="col-md-3 option">  
+                        <a href="/supprimerC/{{$color['id']}}" class=""><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="20px" height="20px"></a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+@else
+    <p>Pas d'élément</p>
+@endif
 
-                        <script src="js/ColorPicker.js" defer></script>
+
+
+
+
+                             
+          
+       
+        
+    
+
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modification de la campagne</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>  
+                    <div class="modal-body">
+                        <form action="{{ route('campaign.ajouter') }}" method="post">
+                            @csrf    
+                            <label for="fname">Nom de campagne</label>
+                            <input type="text" id="nom" name="nom" >
+                            
+                            <label for="date">Date debut</label>
+                            <input type="date" id="start_date" name="start_date">
+                            
+                            <label for="date">Date fin</label>
+                            <input type="date" id="end_date" name="end_date">
+                            
+                            <label for="textarea">Description</label>
+                            <textarea id="description" name="description"></textarea>                                   
+                            <button class="button">ajouter</button>
+                          </form>
+
+                    </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajouter un item </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>  
+                    <div class="modal-body">
+                    <form action="{{Route('item.create')}}" method="post">
+                      @csrf    
+                      <label for="nom">Nom de l'item</label>
+                      <input type="text" id="nom" name="nom" value="">
+                      
+                      
+                      <input type="hidden" id="max_items" name="max_items" value="0">
+                      
+                      
+                      <label for="mookup">Sélectionner un mookup</label>
+                      <input type="file" class="form-control-file" id="mookup" name="mookup">
+                      <button class="button">Ajouter</button>
+                  </form>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modification de la campagne</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>  
+                    <div class="modal-body">
+                        <form action="{{Route('color.create')}}" method="post">
+                            @csrf    
+                            <label for="fname">Nom de la couleur</label>
+                            <input type="text" id="nom" name="nom" >                            
+                            <label for="CodeCouleur">choisissez une couleur </label>
+                            <input type="color" id="CodeCouleur" name="CodeCouleur">                                                              
+                            <button class="button">ajouter</button>
+                          </form>
+
+                    </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fin items model-->
+
+              <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modification de l'item</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>  
+                    <div class="modal-body">
+                    @foreach($items as $item)
+                      <form action="{{ route('item.update', $item->id) }}" method="post">
+                          @csrf
+                          @method('PATCH')
+                          <label for="fname">Nom de l'item</label>
+                          <input type="text" id="nom" name="nom" value="{{ old('nom', $item->nom) }}">
+                          <label for="fname">max_items</label>
+                          <input type="text" id="max_items" name="max_items" value="{{ old('max_items', $item->max_items) }}">
+                          <label for="mookup">Sélectionner un mookup</label>
+                          <input type="file" class="form-control-file" id="mookup" name="mookup" value="{{ old('mookup', $item->mookup) }}">
+                          <button class="button">modifier</button>
+                      </form>
+                    @endforeach
+
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+    <script src="js/ColorPicker.js" defer></script>
+  </div> 
 
 @endsection
