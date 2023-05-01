@@ -100,6 +100,8 @@ class CompaignsController extends Controller
         $previousCompaigns = Compaign::where('end_date', '<=', date('Y-m-d'))
                                      ->orderBy('end_date', 'desc')
                                      ->get();
+
+        
        return  View('Acceuil.index', compact('compaigns', 'previousCompaigns'));    
    /* }
     else
@@ -118,8 +120,11 @@ public function showA( Request $req)
         $previousCompaigns = Compaign::where('end_date', '<=', date('Y-m-d'))
                                      ->orderBy('end_date', 'desc')
                                      ->get();
+                                     $items = Item::all();
+                                    $couleurs = Color::all();
+                                    $tailles = Taille::all();
         
-       return  View('Admin.home', compact('compaigns', 'previousCompaigns'));    
+       return  View('Admin.home', compact('compaigns', 'previousCompaigns','items', 'couleurs', 'tailles'));    
    /* }
     else
     {

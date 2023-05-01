@@ -50,6 +50,7 @@ class ColorsController extends Controller
     {
         try {
             $color = Color::all(); // récupère toutes les données de la table items
+            
             return view('Admin.AjouterCompagne', compact('colors')); 
     
         } catch (\Throwable $e) {
@@ -81,6 +82,7 @@ class ColorsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Color::destroy($id);
+        return "suppression reussie ";
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CompaignsController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ColorsController;
+use App\Http\Controllers\TaillesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::post("/register",[UsersController::class,'register']);
 
 Route::get('/',[CompaignsController::class,'show']);
 Route::get('/home',[CompaignsController::class,'showA']);
+
 //modifier la campagne 
 Route::patch('/updateCampagne/{campagne}',[CompaignsController::class,'update'])->name ('campaign.update');
 //modifier son statut
@@ -54,15 +56,25 @@ Route::patch('/updateActif/{id}',[ItemsController::class,'updateActif'])->name (
 Route::post('/create', [ItemsController::class, 'create'])->name('item.create');
 //supprimer item 
 Route::get('/supprimerI/{item}',[ItemsController::class,'destroy']);
+//supprimer item a la campagne 
+Route::get('/detacher/{item}',[ItemsController::class,'detacher']);
 //ajouter une campagne 
 Route::post('AjouterCampagne',[CompaignsController::class,'create'])->name('campagne.create'); 
 
 Route::post('/campaign/ajouter', [CompaignsController::class, 'ajouterCampagne'])->name('campaign.ajouter');
 //afficher les item enregistrr 
 Route::get('/Add', [ItemsController::class, 'show']);
+
 //ajouter des couleurs
 Route::post('/campaign/create', [ColorsController::class, 'create'])->name('color.create');
 //afficher les couleurs
+
+//ajouter les items couleur taille a la campagne 
+Route::post('/createItemSize', [ItemsController::class, 'createCampagneItemColorSize'])->name('item.createCampagneItemColorSize');
+//supprimer une couleur 
+Route::get('/supprimerC/{color}',[ColorsController::class,'destroy']);
+
+
 
 
 

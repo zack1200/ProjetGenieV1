@@ -39,9 +39,56 @@
                 </div>
               </div>
 
+              
+
             @endforeach
             
-            
+            <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajouter un item </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>  
+                    <div class="modal-body">
+                    <form action="{{Route('item.createCampagneItemColorSize')}}" method="post">
+                              @csrf
+
+                              <label for="max_items">max_items</label>
+                              <input type="text" id="max_items" name="max_items" value="">
+
+                              <label for="item_id">Sélectionner un item</label>
+                              <select name="item_id" id="item_id">
+                                  @foreach($items as $item)
+                                      <option value="{{ $item->id }}">{{ $item->nom }}</option>
+                                  @endforeach
+                              </select>
+
+                              <label>Sélectionner une ou plusieurs couleurs :</label>
+                          @foreach($couleurs as $couleur)
+                              <div>
+                                  <input type="checkbox" id="color_{{ $couleur->id }}" name="colors[]" value="{{ $couleur->id }}">
+                                  <label for="color_{{ $couleur->id }}">{{ $couleur->nom }}</label>
+                              </div>
+                          @endforeach
+
+
+                          <label>Sélectionner une ou plusieurs tailles :</label>
+                          @foreach($tailles as $taille)
+                              <div>
+                                  <input type="checkbox" id="taille_{{ $taille->id }}" name="tailles[]" value="{{ $taille->id }}">
+                                  <label for="taille_{{ $taille->id }}">{{ $taille->nomtaille }}</label>
+                              </div>
+                          @endforeach
+
+                          <input type="hidden" id="compaign_id" name="compaign_id" value="{{$compaign->id}}"else>
+                          <button class="button">Ajouter</button>
+                      </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
              
 
               <!-- Afficher les items de la campagne de la campagne -->
@@ -61,8 +108,9 @@
                         <div class="container Collection">
                             <div class="row">
                                 <div class="col-md-2">
-                                <img src="{{$itemcompaign->mookup}}" alt="Logo" width="100px" height="100px">
+                                <img src="{{ asset('img/model/' . $itemcompaign->mookup) }}" alt="Logo" width="100px" height="100px">
                                 </div>
+                                
                                 <div class="col-md-6">
                                 <h5 class="optiontitre"><b>{{$itemcompaign->nom}}</b></h5>
 <!--couleurs-->                               
@@ -86,7 +134,7 @@
                                     <a href="{{ route('item.update', [$itemcompaign]) }}"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" >
                                         <img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px">                            
                                     </a>  
-                                    <a href="/supprimerI/{{$itemcompaign['id']}}" class=" "><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px">
+                                    <a href="/detacher/{{$itemcompaign['id']}}" class=" "><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px">
                                     </a>
                                     
                                 </div>
@@ -147,8 +195,8 @@
                                 <input type="text" id="nom" name="nom" value="{{ old('nom', $itemcompaign->nom) }}">
                                 <label for="fname">max_items</label>
                                 <input type="text" id="max_items" name="max_items" value="{{ old('max_items', $itemcompaign->max_items) }}">
-                                <label for="fname">mookup</label>
-                                <input type="text" id="mookup" name="mookup" value="{{ old('mookup', $itemcompaign->mookup) }}"> 
+                                <label for="mookup">Sélectionner un mookup</label>
+                                <input type="file" class="form-control-file" id="mookup" name="mookup" value="{{ old('mookup', $itemcompaign->mookup) }}">
                                 <label for="actif">Actif :</label>
                                   <select name="actif" id="actif">
                                       <option value="1" {{ $itemcompaign->actif ? 'selected' : '' }}>Oui</option>
@@ -235,36 +283,8 @@
           </div>
         </div>
 
-        <!-- fin items model-->
+ 
 
-        <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajouter un item </h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>  
-                    <div class="modal-body">
-                    <form action="{{Route('item.create')}}" method="post">
-                      @csrf    
-                      <label for="nom">Nom de l'item</label>
-                      <input type="text" id="nom" name="nom" value="">
-                      
-                      <label for="max_items">max_items</label>
-                      <input type="text" id="max_items" name="max_items" value="">
-                      
-                      <label for="mookup">mookup</label>
-                      <input type="text" id="mookup" name="mookup" value=""> 
-                      
-                      <label for="actif">Afficher :</label>
-                      <select name="actif" id="actif">
-                          <option value="1" {{ $itemcompaign->actif ? 'selected' : '' }}>Oui</option>
-                          <option value="0" {{ !$itemcompaign->actif ? 'selected' : '' }}>Non</option>
-                      </select> 
-                      
-                      <input type="hidden" id="compaign_id" name="compaign_id" value="{{$compaign->id}}">  
-                      <button class="button">Ajouter</button>
-                  </form>
                         </div>
                     </div>
                   </div>
@@ -310,44 +330,57 @@
                   </div>
                 </div>
               </div>
-              <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                     <!-- fin items model-->
+
+        <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modification de l'item</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajouter un item </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>  
                     <div class="modal-body">
-                    <form action="{{Route('item.create')}}" method="post">
-                      @csrf    
-                      <label for="nom">Nom de l'item</label>
-                      <input type="text" id="nom" name="nom" value="">
-                      
-                      <label for="max_items">max_items</label>
-                      <input type="text" id="max_items" name="max_items" value="">
-                      
-                      <label for="mookup">Sélectionner un mookup</label>
-                      <input type="file" class="form-control-file" id="mookup" name="mookup">
-                      
-                      
-                      
-                      
-                      <input type="hidden" id="compaign_id" name="compaign_id" value="{{$compaign->id}}">  
-                      <button class="button">Ajouter</button>
-                  </form>
-                        </div>
+                    <form action="{{Route('item.createCampagneItemColorSize')}}" method="post">
+                              @csrf
+
+                              <label for="max_items">max_items</label>
+                              <input type="text" id="max_items" name="max_items" value="">
+
+                              <label for="item_id">Sélectionner un item</label>
+                              <select name="item_id" id="item_id">
+                                  @foreach($items as $item)
+                                      <option value="{{ $item->id }}">{{ $item->nom }}</option>
+                                  @endforeach
+                              </select>
+
+                              <label>Sélectionner une ou plusieurs couleurs :</label>
+                          @foreach($couleurs as $couleur)
+                              <div>
+                                  <input type="checkbox" id="color_{{ $couleur->id }}" name="colors[]" value="{{ $couleur->id }}">
+                                  <label for="color_{{ $couleur->id }}">{{ $couleur->nom }}</label>
+                              </div>
+                          @endforeach
+
+
+                          <label>Sélectionner une ou plusieurs tailles :</label>
+                          @foreach($tailles as $taille)
+                              <div>
+                                  <input type="checkbox" id="taille_{{ $taille->id }}" name="tailles[]" value="{{ $taille->id }}">
+                                  <label for="taille_{{ $taille->id }}">{{ $taille->nomtaille }}</label>
+                              </div>
+                          @endforeach
+
+                          <input type="hidden" id="compaign_id" name="compaign_id" value="{{$compaign->id}}"else>
+                          <button class="button">Ajouter</button>
+                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
                 @endif
-
-
-
               @else
-             
-             
-             
+                          
              <div class="container py-4" >
                 <div class="row align-items-center ">
                   <div class="col-xl-12 col-md-12 col-sm-12  ">
@@ -360,8 +393,6 @@
                 </div>
               </div>
               </div>
-
-
               <!-- fin items model-->
             <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">

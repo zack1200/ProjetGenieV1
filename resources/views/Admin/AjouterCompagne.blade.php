@@ -53,10 +53,10 @@
                             </div>
                             <div class="col-md-3 option">
                                 <br>
-                                <a href="/" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                                    <img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px">                            
-                                </a>  
-                                <a href="/" class=""><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px">
+                                <a href="{{ route('item.update', [$item]) }}"  data-bs-toggle="modal" data-bs-target="#staticBackdrop4" >
+                                        <img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px">                            
+                                    </a>   
+                                <a href="/supprimerI/{{$item['id']}}" class=" "><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px">
                                 </a>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
 @if (isset($colors) && count($colors))
     <div class="col-xl-6 col-md-12 col-sm-12">
         @foreach ($colors as $color)
-            <div class="container Collection" style="background-color: {{$color->CodeCouleur}};">
+            <div class="container Collection2" style="background-color: {{$color->CodeCouleur}};">
                 <div class="row">
                     <div class="col-md-3">
                         <h5 class="optiontitre"><b>{{$color->nom}}</b></h5>
@@ -79,7 +79,7 @@
                         <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {{$color->CodeCouleur}};"></div>                                
                     </div>
                     <div class="col-md-3 option">  
-                        <a href="/" class=""><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="20px" height="20px"></a>
+                        <a href="/supprimerC/{{$color['id']}}" class=""><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="20px" height="20px"></a>
                     </div>
                 </div>
             </div>
@@ -176,6 +176,35 @@
 
                     </div>
 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fin items model-->
+
+              <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modification de l'item</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>  
+                    <div class="modal-body">
+                    @foreach($items as $item)
+                      <form action="{{ route('item.update', $item->id) }}" method="post">
+                          @csrf
+                          @method('PATCH')
+                          <label for="fname">Nom de l'item</label>
+                          <input type="text" id="nom" name="nom" value="{{ old('nom', $item->nom) }}">
+                          <label for="fname">max_items</label>
+                          <input type="text" id="max_items" name="max_items" value="{{ old('max_items', $item->max_items) }}">
+                          <label for="mookup">Sélectionner un mookup</label>
+                          <input type="file" class="form-control-file" id="mookup" name="mookup" value="{{ old('mookup', $item->mookup) }}">
+                          <button class="button">modifier</button>
+                      </form>
+                    @endforeach
+
+                        </div>
                     </div>
                   </div>
                 </div>
