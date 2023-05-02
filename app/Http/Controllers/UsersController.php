@@ -115,14 +115,14 @@ class UsersController extends Controller
         try {
             $user = User::findOrFail($id);
 
-            $user->delete();
+            $user->delete(); 
 
-           return redirect()->route('SuperAdmin/home')->with('message', "Suppression de usager numéro " . $user->id . " réussie"); 
+           return redirect()->route('SuperAdmin')->with('message', "Suppression de usager numéro " . $user->id . " réussie"); 
         }
         catch(\Throwable $e) {
             Log::debug($e);
-           return redirect()->route('SuperAdmin/home')->withErrors(['Suppression echouée']);
+           return redirect()->route('SuperAdmin')->withErrors(['Suppression echouée']);
         }
-            return redirect()->route('SuperAdmin/home');
+            return redirect()->route('SuperAdmin');
     }
 }

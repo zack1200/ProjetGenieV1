@@ -41,7 +41,7 @@ Route::post("/register",[UsersController::class,'register']);
 
 Route::get('/',[CompaignsController::class,'show']);
 
-Route::get("/SuperAdmin",[UsersController::class,'index']);
+Route::get("/SuperAdmin",[UsersController::class,'index'])->name('SuperAdmin');
 
 Route::get('/SuperAdmin/createAdmin',
 [UsersController::class, 'create'])->name('SuperAdmin.createAdmin');
