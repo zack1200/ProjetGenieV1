@@ -152,7 +152,7 @@ public function showA( Request $req)
             $campagne->start_date = $request->start_date;
             $campagne->end_date = $request->end_date;      
             $campagne ->save();
-            return "done";
+            return redirect()->back();
         }
 
         catch(\Throwable $e){
@@ -172,7 +172,7 @@ public function showA( Request $req)
         
         $campagne->save();
         
-        return "done";
+        return redirect()->back();
     }
     catch(\Throwable $e) {
         // Gérer l'erreur

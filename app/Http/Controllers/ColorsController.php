@@ -25,6 +25,7 @@ class ColorsController extends Controller
         try{
             $color = new Color($req ->all());
             $color->save();
+            return redirect()->back();
         }
         catch (\Throwable $e){
             Log::debug($e);
@@ -83,6 +84,6 @@ class ColorsController extends Controller
     public function destroy(string $id)
     {
         Color::destroy($id);
-        return "suppression reussie ";
+        return redirect()->back();
     }
 }
