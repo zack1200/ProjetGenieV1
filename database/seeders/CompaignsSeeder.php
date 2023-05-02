@@ -16,7 +16,7 @@ class CompaignsSeeder extends Seeder
             [
                 'nom' => 'Session Hiver 2021',
                 'description' => 'none',   
-                'start_date'=>'2023-06-06',
+                'start_date'=>'2023-01-06',
                 'end_date'=>'2023-06-07',
                 'actif'=>1,
                 'created_at'=> date('Y-m-d H-i-s'),  

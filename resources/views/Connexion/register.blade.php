@@ -36,6 +36,8 @@
                 <input type="password" class="text" name="password">   <!-- mot de passe bd : password  -->
                 <span>confirmer le mot de passe</span>
                 <br>
+                <input type="text" class="text" name="role" value="user">   <!-- mot de passe bd : password  -->
+                
                 
                 @if ($errors->any())
 <div>

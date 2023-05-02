@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\models\Item;
+use App\models\Color;
+use Illuminate\Support\Facades\Log;
 
 class ColorsController extends Controller
 {
@@ -17,9 +20,20 @@ class ColorsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $req)
     {
-        //
+        try{
+            $color = new Color($req ->all());
+            $color->save();
+            return redirect()->back();
+        }
+        catch (\Throwable $e){
+            Log::debug($e);
+            return "relation failed ";
+        }
+        
+        
+
     }
 
     /**
@@ -33,9 +47,19 @@ class ColorsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        try {
+            $color = Color::all(); // récupère toutes les données de la table items
+            
+            return view('Admin.AjouterCompagne', compact('colors')); 
+    
+        } catch (\Throwable $e) {
+            //Gérer l'erreur 
+            Log::debug($e);
+            Log::debug($e->getMessage());
+            return "Fail";
+        }
     }
 
     /**
@@ -59,6 +83,7 @@ class ColorsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Color::destroy($id);
+        return redirect()->back();
     }
 }

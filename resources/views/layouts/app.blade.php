@@ -13,6 +13,20 @@
 
 <header>
 <a href="/" class="logo "><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+@endif
+
 </header>
 
 <body>
@@ -22,7 +36,7 @@
         <a href="/home" class=" "><img src="{{asset('img/icon/maison.png') }}" alt="Logo" width="30px" height="30px"></a>
         <a href="/reservation" class=" "><img src="{{asset('img/icon/presse-papiers-liste-verification.png') }}" alt="Logo" width="30px" height="30px"></a>
         <a href="/livraison" class=" "><img src="{{asset('img/icon/livraison.png') }}" alt="Logo" width="30px" height="30px"></a>   
-        <a href="/" class=" "><img src="{{asset('img/icon/plus.png') }}" alt="Logo" width="30px" height="30px"></a>
+        <a href="/Add" class=" "><img src="{{asset('img/icon/reglages.png') }}" alt="Logo" width="30px" height="30px"></a>
         <a href="/" class=" "><img src="{{asset('img/icon/temps-passe.png') }}" alt="Logo" width="30px" height="30px"></a>
             <br><br>
         <a href="/" class=" "><img src="{{asset('img/icon/exit.png') }}" alt="Logo" width="30px" height="30px"></a>

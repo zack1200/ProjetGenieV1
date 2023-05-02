@@ -43,7 +43,7 @@
 }
 
 
-
+endsection
 .navbar a i {
     font-size: 24px;
     margin-bottom: 5px;
@@ -52,12 +52,12 @@
     background-color: #38B6FF;
     border-radius: 20px;
     text-align: center;
-    width: 800px;
-    height: 70px;
+    width: auto;
+    height: auto;
     padding-top: 10px;
     
 }
-.Collection{
+.Collection2{
     background-color: #F5F7FA;
     border-radius: 20px;
     text-align: left;
@@ -67,6 +67,8 @@
     padding-top: 10px;
     padding-left: 50px;
     margin-top: 10px;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0ff, 0 0 70px #0ff, 0 0 80px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+    color: #fff;
 }
 .Reservation{
     background-color: #F5F7FA;
@@ -249,6 +251,24 @@ h5{
 .color-picker-container label {
   margin-bottom: 5px;
   font-weight: bold;
+}
+.modif{
+  height: auto;
+}
+.AjouterItem{
+  
+  color: black;
+ 
+  
+}
+.Ajt{
+  border: 0ch;
+  border-color: none;
+  background-color:white;
+  width: 200px;
+  height: 150px;
+  border-radius: 5px;
+
 }
 
 
