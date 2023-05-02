@@ -13,6 +13,7 @@
 
   
   <form method="post" action="{{ route ('users.store') }}">
+    @csrf
       <div class="form-group">
       <label for="nomUser" >Nom de l'utilisateur</label>
       <input type="text" class="form-control" id="nomUser" placeholder="Entrer nom" name="nom" >

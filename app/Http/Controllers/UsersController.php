@@ -65,8 +65,10 @@ class UsersController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param   \Illuminate\Http\Request $request
+     * @return  \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
         try {
             $user = new User($request->all());
@@ -77,7 +79,7 @@ class UsersController extends Controller
             //Gerer erreur
             Log::debug($e);
         }
-        return redirect()->route('SuperAdmin/home');
+        return redirect()->route('SuperAdmin');
     }
 
     /**
