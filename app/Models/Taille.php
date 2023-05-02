@@ -8,7 +8,8 @@ use app\Models\Item;
 
 class Taille extends Model
 {
-    protected $fillable =['taille'];
+    protected $fillable =['nomtaille'];
+    protected $table = 'tailles';
     public function itemtaille(){
         return        $this->belongsToMany('App\Models\Item');    
     }

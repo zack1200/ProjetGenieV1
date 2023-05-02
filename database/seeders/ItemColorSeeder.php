@@ -18,6 +18,12 @@ class ItemColorSeeder extends Seeder
                 'color_id' => 1, 
                 
                 'created_at'=> date('Y-m-d H-i-s'),  
+            ],
+            [
+                'item_id' => 1,   
+                'color_id' => 2, 
+                
+                'created_at'=> date('Y-m-d H-i-s'),  
             ]
         ]);
     }

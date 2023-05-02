@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('start_date',50);
             $table->string('end_date',50);
-            $table->boolean('actif');
+            $table->boolean('actif')->default(false);
             $table->timestamps();
         });
     }
