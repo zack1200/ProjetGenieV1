@@ -17,7 +17,7 @@
     background-color: #e1e5f2;
     border-radius: 15px;
     width: 400px;
-    height: 550px;
+    height: auto;
     text-align: left;
     
     
@@ -335,3 +335,93 @@
 div {
   margin: 10px;
 }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  height: 80px;
+  padding: 0 20px;
+}
+
+.navbar-logo img {
+  height: 50px;
+}
+
+.navbar-options {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-options li {
+  margin-left: 20px;
+}
+
+.navbar-options li:first-child {
+  margin-left: 0;
+}
+
+.navbar-options a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+.color-sample-btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Ajouter la couleur de fond à la classe .color-sample-btn */
+.color-sample-btn:hover {
+  background-color: rgb(226, 25, 25);
+}
+.color-sample-btn.active {
+  box-shadow: 0 0 5px 2px
+}
+
+.taille-sample-btn {
+  display: inline-block;
+  margin-right: 10px;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.taille-sample-btn:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.taille-sample-btn:hover:after {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.taille-sample-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 5px 2px
+}
+
+
