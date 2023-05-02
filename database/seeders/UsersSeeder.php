@@ -30,6 +30,13 @@ class UsersSeeder extends Seeder
                 'password' =>Hash::make('123'),
                 'role'=>'admin',
                 'created_at'=> date('Y-m-d H-i-s'),  
+            ],
+            [
+                'nom' => 'cedric',
+                'email' =>'cedric@gmail.com',
+                'password' =>Hash::make('ced'),
+                'role'=>'admin',
+                'created_at'=> date('Y-m-d H-i-s'),  
             ]
         ]);
     }
