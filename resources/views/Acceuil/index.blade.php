@@ -75,14 +75,13 @@
                     </div>
 
                     <div class="container">
-                        <h5>Quantité</h5>
-                        <div class="quantite">
-                        
-                            <input type="number" name="quantite" value="1" min="1" max="3">
-                        
+                        <h5>Quantité</h5>                        
+                        <div>
+                            <button onclick="decrement()" class="qte">-</button>
+                            <input type="number" class="qtenbr" id="max_items" name="max_items" min="1" max="10" value="1" readonly>
+                            <button onclick="increment()" class="qte">+</button>
                         </div>
                     </div>
-
                     <div class="container">
                         <button type="submit">Ajouter au panier</button>
                     </div>
@@ -97,7 +96,8 @@
         <h1>Une campagne sera bientot publier</h1>
           @endif 
 
-       
+          
+
 <!--
          
         <div class="col-xl-4 bggg py-5 ">

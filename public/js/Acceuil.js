@@ -24,5 +24,24 @@ tailleButtons.forEach(button => {
   });
 });
 
+function increment() {
+  var input = document.getElementById("max_items");
+  var currentValue = parseInt(input.value);
+
+  if (currentValue < parseInt(input.max)) {
+    input.value = currentValue + 1;
+  }
+}
+
+function decrement() {
+  var input = document.getElementById("max_items");
+  var currentValue = parseInt(input.value);
+
+  if (currentValue > parseInt(input.min)) {
+    input.value = currentValue - 1;
+  }
+}
+
+
 
 

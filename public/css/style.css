@@ -114,10 +114,32 @@ div {
   margin-right: 10px;
 }
 .taille-sample-btn:hover {
-  background-color: rgb(226, 25, 25);
+  background-color: #00a6fb;
 }
 .taille-sample-btn.active {
   box-shadow: 0 0 5px 2px
 }
+
+
+
+
+.qte{
+  font-size: 16px;
+  background-color: #00a6fb;
+  border-color: none;
+  border-radius: 15%;
+  width: 30px;
+  border-style: none;
+}
+.qtenbr{
+  font-size: 16px;
+  text-align: center;
+  align-items: center;
+  width: 50px;
+  border-radius: 15%;
+  
+  border-style: none;
+}
+
 
 
