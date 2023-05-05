@@ -14,6 +14,10 @@ class TaillesSeeder extends Seeder
     {
         DB::table('tailles')->insert([
             [
+                'nomtaille' => 'XS',                
+                'created_at'=> date('Y-m-d H-i-s'),  
+            ],
+            [
                 'nomtaille' => 'S',                
                 'created_at'=> date('Y-m-d H-i-s'),  
             ],
@@ -23,6 +27,14 @@ class TaillesSeeder extends Seeder
             ],
             [
                 'nomtaille' => 'L',                
+                'created_at'=> date('Y-m-d H-i-s'),  
+            ],
+            [
+                'nomtaille' => 'XL',                
+                'created_at'=> date('Y-m-d H-i-s'),  
+            ],
+            [
+                'nomtaille' => 'XXL',                
                 'created_at'=> date('Y-m-d H-i-s'),  
             ],
         ]);

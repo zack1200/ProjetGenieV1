@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Session;
 use App\models\Compaign;
 use App\models\Item;
 use App\models\Color;
 use App\models\Taille;
+use App\models\Cart;
 use Illuminate\Support\Facades\Log;
 
 class ItemsController extends Controller
@@ -220,6 +223,40 @@ class ItemsController extends Controller
 
     }
 }
+public function addToCart(Request $req)
+{
+    if ($req->session()->has('user'))
+    {
+            
+            $cart = new Cart;
+            $cart->user_id = $req->session()->get('user')['id'];
+            $cart->item_id = $req->item_id;
+            $cart->color_id = $req->color_id;
+            $cart->taille_id = $req->taille_id;
+            $cart->save();
+            return "winn";
+    }
+    else{
+        return redirect()->back();
+    }
+    /*try{
+        $cart = new Cart;
+        $cart->user_id = Auth::id();
+        $cart->item_id = $req->item_id;
+        $cart->color_id = $req->color_id;
+        $cart->taille_id = $req->taille_id;
+        $cart->save();
+        
+    }
+    catch(\Throwable $e){
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+        return "Fail"; 
+    }*/
+    
+}
+
 
     
 

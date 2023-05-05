@@ -3,7 +3,7 @@
 @section('contenuDuMillieu')
   <div class="container">
     <div class="row">
-      <div class="offset-xl-2 col-xl-10 col-md-4">
+      <div class="offset-2 col-xl-10 col-md-10">
         <div class="row">
           <div class="col-md-3 mb-3">
             <button type="button" class="Ajt" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
@@ -35,59 +35,63 @@
 
     </div>
        
-
     @if (isset($items) && count($items))
-    @foreach ($items as $item) 
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-md-12 col-sm-12">
-                    <div class="container Collection" style="background-color: #F5F7FA;">
-                        <div class="row">
+    <div class="row offset-2 ">
+        <div class="col-md-6 col-sm-6">
+            @foreach ($items as $item) 
+                <div class="container Collection" style="background-color: #F5F7FA; width:650px;">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <img src="{{ asset('img/model/' . $item->mookup) }}" alt="Logo" width="100px" height="100px">
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="optiontitre"><b>{{$item->nom}}</b></h5>
+                        </div>
+                        <div class="col-md-3 option">
+                            <br>
+                            <a href="{{ route('item.update', [$item]) }}"  data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
+                                <img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px">                            
+                            </a>   
+                            <a href="/supprimerI/{{$item['id']}}" class=" "><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px"></a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            @else
+            <div class="row">
+              <div class="offset-6 col-6 align-items-center">
+                  <p></p>
+              </div>
+            </div>
+            @endif
+        </div>
+        <div class="col-md-6 col-sm-6">
+            @if (isset($colors) && count($colors))
+                @foreach ($colors as $color)
+                    <div class="container Collection2" style="background-color: {{$color->CodeCouleur}};border-radius: 10px; width:650px;">
+                        <div class="row align-items-center">
                             <div class="col-md-3">
-                                <img src="{{ asset('img/model/' . $item->mookup) }}" alt="Logo" width="100px" height="100px">
+                                <h5 class="optiontitre"><b>{{$color->nom}}</b></h5>
                             </div>
                             
-                            <div class="col-md-4">
-                            
-                                <h5 class="optiontitre"><b>{{$item->nom}}</b></h5>
-                            </div>
-                            <div class="col-md-3 option">
-                                <br>
-                                <a href="{{ route('item.update', [$item]) }}"  data-bs-toggle="modal" data-bs-target="#staticBackdrop4" >
-                                        <img src="{{asset('img/icon/bouton-modifier.png') }}" alt="" width="30px" height="30px">                            
-                                    </a>   
-                                <a href="/supprimerI/{{$item['id']}}" class=" "><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="30px" height="30px">
-                                </a>
+                            <div class="col-md-3 option">  
+                                <a href="/supprimerC/{{$color['id']}}" class=""><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="20px" height="20px"></a>
                             </div>
                         </div>
-                        
                     </div>
-                </div>
                 @endforeach
-@else
-    <p>Pas d'élément</p>
-@endif
-@if (isset($colors) && count($colors))
-    <div class="col-xl-6 col-md-12 col-sm-12">
-        @foreach ($colors as $color)
-            <div class="container Collection2" style="background-color: {{$color->CodeCouleur}};">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h5 class="optiontitre"><b>{{$color->nom}}</b></h5>
-                    </div>
-                    <div class="col-md-4">
-                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {{$color->CodeCouleur}};"></div>                                
-                    </div>
-                    <div class="col-md-3 option">  
-                        <a href="/supprimerC/{{$color['id']}}" class=""><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="20px" height="20px"></a>
-                    </div>
-                </div>
+            @else
+            <div class="row">
+              <div class="offset-6 col-6 align-items-center">
+                  <p></p>
+              </div>
             </div>
-        @endforeach
+                
+            @endif
+        </div>
     </div>
-@else
-    <p>Pas d'élément</p>
-@endif
+
+
 
 
 

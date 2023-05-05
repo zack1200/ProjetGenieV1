@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\models\User;
 use Illuminate\Support\Facades\Hash;
@@ -23,14 +24,14 @@ class UsersController extends Controller
             'email'=>'required',           
             'password'=>'required',
         ]); 
-        $user =user::where(['email'=>$req->email])->first();
+        $user =User::where(['email'=>$req->email])->first();
         if(! $user || ! Hash::check($req->password,$user->password))
         {
             return redirect('/login');
         }
         else{
             $req->session()->put('user',$user);
-            return redirect('/');
+            return redirect()->back();
         }
     }
 //fin

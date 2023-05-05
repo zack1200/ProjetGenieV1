@@ -73,8 +73,13 @@ Route::post('/campaign/create', [ColorsController::class, 'create'])->name('colo
 Route::post('/createItemSize', [ItemsController::class, 'createCampagneItemColorSize'])->name('item.createCampagneItemColorSize');
 //supprimer une couleur 
 Route::get('/supprimerC/{color}',[ColorsController::class,'destroy']);
+//ajouter au panier 
+Route::post('/add_to_cart', [ItemsController::class, 'addToCart']);
 
-
+Route::get('/deconnexion', function () {
+    Session::forget('user');
+    return "ciao";
+});
 
 
 

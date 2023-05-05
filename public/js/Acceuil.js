@@ -2,6 +2,7 @@
 let colorButtons = document.querySelectorAll('.color-sample-btn');
 let tailleButtons = document.querySelectorAll('.taille-sample-btn');
 
+
 // Ajouter un gestionnaire d'événements de clic à chaque bouton de couleur
 colorButtons.forEach(button => {
   button.addEventListener('click', function() {
@@ -13,14 +14,16 @@ colorButtons.forEach(button => {
   });
 });
 
-// Ajouter un gestionnaire d'événements de clic à chaque bouton de couleur
 tailleButtons.forEach(button => {
   button.addEventListener('click', function() {
-    // Supprimer la classe active de tous les boutons de couleur
-    tailleButtons.forEach(btn => btn.classList.remove('active'));
+      // Supprimer la classe active de tous les boutons de taille
+      tailleButtons.forEach(btn => btn.classList.remove('active'));
 
-    // Ajouter la classe active au bouton cliqué
-    this.classList.add('active');
+      // Ajouter la classe active au bouton cliqué
+      this.classList.add('active');
+
+      // Mettre à jour la valeur de l'élément caché avec l'ID de la taille sélectionnée
+      document.getElementById('selected-taille').value = this.value;
   });
 });
 
