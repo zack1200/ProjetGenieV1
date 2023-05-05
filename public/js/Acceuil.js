@@ -27,23 +27,50 @@ tailleButtons.forEach(button => {
   });
 });
 
-function increment() {
-  var input = document.getElementById("max_items");
-  var currentValue = parseInt(input.value);
+const visibleQuantityInput = document.getElementById('qte');
+        const hiddenQuantityInput = document.getElementById('hidden-quantity-input');
+        visibleQuantityInput.addEventListener('change', () => {
+            const selectedQuantity = visibleQuantityInput.value;
+            console.log(`Quantité sélectionnée: ${selectedQuantity}`);
+            hiddenQuantityInput.value = selectedQuantity;
+        });
+        const buttons = document.querySelectorAll('.taille-sample-btn');
+        const selectedTailleInput = document.getElementById('selected-taille');
+    
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                selectedTailleInput.value = button.value;
+                console.log(`Taille sélectionnée: ${button.value}`);
+            });
+        });
+        const colorBtns = document.querySelectorAll('.color-sample-btn');
+        const selectedColorInput = document.getElementById('selected-color');
+    
+        colorBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const colorId = btn.dataset.value;
+                console.log(`Couleur sélectionnée: ${colorId}`);
+                selectedColorInput.value = colorId;
+            });
+        });
 
-  if (currentValue < parseInt(input.max)) {
-    input.value = currentValue + 1;
-  }
-}
+        function increment() {
+            const currentValue = parseInt(visibleQuantityInput.value);
+            const maxValue = parseInt(visibleQuantityInput.max);
+            if (currentValue < maxValue) {
+                visibleQuantityInput.value = currentValue + 1;
+                hiddenQuantityInput.value = currentValue + 1;
+            }
+        }
 
-function decrement() {
-  var input = document.getElementById("max_items");
-  var currentValue = parseInt(input.value);
-
-  if (currentValue > parseInt(input.min)) {
-    input.value = currentValue - 1;
-  }
-}
+        function decrement() {
+            const currentValue = parseInt(visibleQuantityInput.value);
+            const minValue = parseInt(visibleQuantityInput.min);
+            if (currentValue > minValue) {
+                visibleQuantityInput.value = currentValue - 1;
+                hiddenQuantityInput.value = currentValue - 1;
+            }
+        }
 
 
 

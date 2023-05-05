@@ -75,11 +75,15 @@ Route::post('/createItemSize', [ItemsController::class, 'createCampagneItemColor
 Route::get('/supprimerC/{color}',[ColorsController::class,'destroy']);
 //ajouter au panier 
 Route::post('/add_to_cart', [ItemsController::class, 'addToCart']);
-
+//afficher le panier 
+Route::get('cartlist', [ItemsController::class, 'cartList']);
+//deconnexion
 Route::get('/deconnexion', function () {
     Session::forget('user');
     return "ciao";
 });
+
+
 
 
 

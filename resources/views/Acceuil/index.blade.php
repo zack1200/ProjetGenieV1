@@ -10,21 +10,42 @@
     <title>Document</title>
 </head>
 <body>
+<?php 
 
+use App\Http\Controllers\ItemsController;
+$total=0;
+if(Session::has('user')){
+    $total = ItemsController::cartItem();
+}
+
+
+?>
 <nav class="navbar">
   <div class="navbar-logo">
     <a href="/"><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
   </div>
   <ul class="navbar-options">
-    <li><a href="#"><img src="{{asset('img/icon/basket.png') }}" alt="" width="30px" height="30px"></a></li>
-    @if (Auth::check())
-    <li>Bonjour</li>
-    {{Session::get('user')['nom']}}
-    @else
     
-        <li><a href="/" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Connexion</a></li>
+    @if(Session::has('user'))
+
+    
+    <div class="btn-group">
+        <button type="button" class="dropLog dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            {{Session::get('user')['nom']}}
+        </button>
+            <ul class="dropdown-menu down">                
+                <li><a href="/deconnexion" id="dec">Commande</a></li>
+                <li><a href="/deconnexion" id="dec">Deconnexion</a></li>
+                
+            </ul>
+    </div>
+    <li class="navIcon"><a href="/cartlist " data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><img src="{{asset('img/icon/basket.png') }}" alt="" width="30px" height="30px" >({{$total}})</a></li>
+    @else
+    <li><a href="/" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Connexion</a></li>
     @endif
-    <a href="/deconnexion" id="dec">Deconnexion</a>
+
+    
+    
   </ul>
 </nav>
 
@@ -81,6 +102,7 @@
                     <div class="col-xl-12 col-md-12 col-sm-12 tit ">
                     @foreach ($compaigns as $compaign)
                       <h1>{{$compaign->nom}} </h1>
+                      <p>{{$compaign->description}} </p>
                     @endforeach                        
                     </div>
                 </div>
@@ -102,7 +124,7 @@
                                     <h5>Choisir une couleur</h5>
                                     <div class="">
                                         @foreach ($itemcompaign->color as $itemColor)
-                                        <button type="button" class="color-sample-btn" style="background-color: {{$itemColor->CodeCouleur}};" data-value="{{$itemColor->CodeCouleur}}"> 
+                                        <button type="button" class="color-sample-btn" style="background-color: {{$itemColor->CodeCouleur}};" data-value="{{$itemColor->id}}"> 
                                         </button>                           
                                         @endforeach
                                     </div>
@@ -121,13 +143,15 @@
 
 
                                 <div class="container">
-                                    <h5>Quantité</h5>                        
+                                <h5>Quantité</h5>                        
                                     <div>                                   
-                                    <button type="decrement" onclick="decrement()" class="qte">-</button>
-                                    <input type="number" class="qtenbr" id="max_items" name="max_items" min="1" max="{{$itemcompaign->max_item}}" value="1" >
-                                    <button type="increment" onclick="increment()" class="qte">+</button>
+                                        <button type="button" onclick="decrement()" class="qte">-</button>
+                                        <input type="number" class="qtenbr" id="qte" name="qte" min="1" max="{{$itemcompaign->max_item}}" value="1" >
+                                        <button type="button" onclick="increment()" class="qte">+</button>
                                     </div>
+                                <input type="hidden" name="qte" id="hidden-quantity-input" value="1">
                                 </div>
+
                                 <input type="hidden" name="item_id" value="{{$itemcompaign->id}}">
                                 <div class="container">
                                     <button type="submit">Ajouter au panier</button>

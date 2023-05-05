@@ -140,6 +140,22 @@ div {
   
   border-style: none;
 }
+.dropLog{
+  font-size: 16px;
+  background-color: #00a6fb;
+  border-color: none;
+  border-radius: 15px;
+  min-width: 100px;
+  min-height: 40px;
+  border-style: none;
+}
+.navIcon{
+  padding-top: 15px;
+}
+.down{
+ 
+  padding-left: 15px;
+}
 
 
 

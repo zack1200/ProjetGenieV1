@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use App\models\Compaign;
 use App\models\Item;
 use App\models\Color;
 use App\models\Taille;
 use App\models\Cart;
+
 use Illuminate\Support\Facades\Log;
 
 class ItemsController extends Controller
@@ -233,29 +235,32 @@ public function addToCart(Request $req)
             $cart->item_id = $req->item_id;
             $cart->color_id = $req->color_id;
             $cart->taille_id = $req->taille_id;
+            $cart->qte = $req->qte;
             $cart->save();
             return "winn";
     }
     else{
         return redirect()->back();
-    }
-    /*try{
-        $cart = new Cart;
-        $cart->user_id = Auth::id();
-        $cart->item_id = $req->item_id;
-        $cart->color_id = $req->color_id;
-        $cart->taille_id = $req->taille_id;
-        $cart->save();
-        
-    }
-    catch(\Throwable $e){
-        //Gérer l'erreur 
-        Log::debug($e);
-        Log::debug($e->getMessage());
-        return "Fail"; 
-    }*/
-    
+    }    
 }
+static function cartItem()
+{
+    $user_id=Session::get('user')['id'];
+    return Cart::where('user_id',$user_id)->count();
+}
+
+public function cartList()
+{
+    $user_id = Session::get('user')['id'];
+    $cart_items = DB::table('cart')
+                ->join('items', 'cart.item_id', '=', 'items.id')
+                ->select('items.*', 'cart.id as cart_id', 'cart.quantity as cart_quantity')
+                ->where('cart.user_id', $user_id)
+                ->get();
+    
+    return view('cartList', ['cart_items' => $cart_items]);
+}
+
 
 
     
