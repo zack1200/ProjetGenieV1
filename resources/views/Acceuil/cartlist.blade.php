@@ -50,6 +50,27 @@ if(Session::has('user')){
   </ul>
 </nav>
 <h1>Mon panier</h1>
+<div class="col-md-5 ">
+@foreach($cart_items as $item)
+<div class="row cart_devider">
+    <div class="col-md-3 ">
+    <img src="{{ asset('img/model/' . $item->mookup) }}" alt="" width="100px" height="90px" >
+    </div>
+    <div class="col-md-3 ">
+        <p> {{ $item->nom_item }} </p>
+        <p> Taille : {{ $item->nomtaille }} </p>
+        <span class="color-sample" style="background-color: {{ $item->CodeCouleur }};"></span>
+    </div>
+    <div class="col-md-3 ">
+        <a href="/removefromcart/{{ $item->cart_id}}" class="btn btn-warning">remove to cart </a>
+    </div>
+</div>
+
+@endforeach 
+</div>
+
+
+
 
 <div class="box">
     @foreach($cart_items as $item)

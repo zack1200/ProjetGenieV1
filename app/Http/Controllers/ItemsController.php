@@ -259,7 +259,7 @@ public function cartList()
             ->join('items', 'cart.item_id', '=', 'items.id' )
             ->join('colors', 'cart.color_id', '=', 'colors.id')
             ->join('tailles', 'cart.taille_id', '=', 'tailles.id')
-            ->select('items.nom as nom_item','colors.*','tailles.*','items.*','cart.qte')
+            ->select('items.nom as nom_item','colors.*','tailles.*','items.*','cart.qte','cart.id as cart_id')
             ->get();
     
         return view('Acceuil.cartlist', compact('cart_items')); 
@@ -271,14 +271,10 @@ public function cartList()
         return "Fail"; 
     }
 }
-
-
-    
-
-
-
-
-    
+public function removeCart($id){
+    cart::destroy($id);
+    return redirect()->back();
+}
 
 }
 

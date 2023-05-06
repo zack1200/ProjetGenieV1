@@ -77,6 +77,8 @@ Route::get('/supprimerC/{color}',[ColorsController::class,'destroy']);
 Route::post('/add_to_cart', [ItemsController::class, 'addToCart']);
 //afficher le panier 
 Route::get('/cartlist', [ItemsController::class, 'cartList']);
+//supprimer un item du panier 
+Route::get('/removefromcart/{id}',[ItemsController::class,'removeCart']);
 //deconnexion
 Route::get('/deconnexion', function () {
     Session::forget('user');
