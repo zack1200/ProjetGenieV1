@@ -17,20 +17,17 @@
     top: 200px;
     left: 0;
     height: 450px;
-    min-width: 100px;
-    
+    min-width: 100px; 
     background-color: #38B6FF;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    box-shadow: 2px 0 5px rgba(250, 0, 0, 0.3);
-    
+    box-shadow: 2px 0 5px rgba(250, 0, 0, 0.3); 
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 }
-
 .navbar a {
     display: flex;
     flex-direction: column;

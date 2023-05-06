@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-ca">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Technique de l'informatique</title>
+    <link rel="icon" href="{{asset('img/logo.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   
@@ -39,7 +41,7 @@ if(Session::has('user')){
                 
             </ul>
     </div>
-    <li class="navIcon"><a href="/cartlist " data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><img src="{{asset('img/icon/basket.png') }}" alt="" width="30px" height="30px" >({{$total}})</a></li>
+    <li class="navIcon"><a href="/cartlist "  ><img src="{{asset('img/icon/basket.png') }}" alt="" width="30px" height="30px" >({{$total}})</a></li>
     @else
     <li><a href="/" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Connexion</a></li>
     @endif
@@ -92,6 +94,27 @@ if(Session::has('user')){
   </div>
 </div>
  
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Mon panier</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="container">
+                
+                  
+    </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

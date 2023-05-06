@@ -23,31 +23,33 @@
                             </div>
                             <div class="col-md-5 ">                            
                             </div>                            
-                            </div>
+                        </div>
 
-                        </div>
-                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                         <div class="container " >
                 <div class="row align-items-center ">
                     <div class="col-xl-12 col-md-12 col-sm-12  ">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3">
-                            <h3>T-shirt </h3>
-                            
-                            </div>
-                            <div class="col-md-6">
-                            <h3>Nombre d'items livree  : 9999</h3>
-                            <h3>Nombre d'items restants  : 9999</h3>
-                            </div>
-                            <div class="col-md-3 ">   
-                            <a href="/" class="suspendre"><h6 >Suspendre <br>la livraison </h6></a>
-                                             
-                            </div>                            
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                <h3>T-shirt </h3>
+                                
+                                </div>
+                                <div class="col-md-6">
+                                <h3>Nombre d'items livree  : 9999</h3>
+                                <h3>Nombre d'items restants  : 9999</h3>
+                                </div>
+                                <div class="col-md-3 ">   
+                                <a href="/" class="suspendre"><h6 >Suspendre <br>la livraison </h6></a>
+                                                
+                                </div>                            
                             </div>
 
                         </div>
-                        </div>
+                    </div>
 
                             <h1 >En attente :</h1>
                         <div class="container Reservation">

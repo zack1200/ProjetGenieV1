@@ -251,15 +251,30 @@ static function cartItem()
 
 public function cartList()
 {
-    $user_id = Session::get('user')['id'];
-    $cart_items = DB::table('cart')
-                ->join('items', 'cart.item_id', '=', 'items.id')
-                ->select('items.*', 'cart.id as cart_id', 'cart.quantity as cart_quantity')
-                ->where('cart.user_id', $user_id)
-                ->get();
+    try {
+        $user_id = Session::get('user')['id'];
+        $cart_items = DB::table('cart')
+                                    
+            ->where('cart.user_id', $user_id)
+            ->join('items', 'cart.item_id', '=', 'items.id' )
+            ->join('colors', 'cart.color_id', '=', 'colors.id')
+            ->join('tailles', 'cart.taille_id', '=', 'tailles.id')
+            ->select('items.nom as nom_item','colors.*','tailles.*','items.*','cart.qte')
+            ->get();
     
-    return view('cartList', ['cart_items' => $cart_items]);
+        return view('Acceuil.cartlist', compact('cart_items')); 
+    } catch(\Throwable $e) {
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return "Fail"; 
+    }
 }
+
+
+    
+
 
 
 

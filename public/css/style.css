@@ -6,6 +6,8 @@
   }
   
   body {
+    margin: 0;
+    padding: 0;
     font-family: 'FiraCode', sans-serif;
   }
 .bggg{
@@ -97,6 +99,15 @@ div {
   cursor: pointer;
   margin-right: 10px;
 }
+.color-sample {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 
 .color-sample-btn:hover {
   background-color: rgb(226, 25, 25);
@@ -145,17 +156,91 @@ div {
   background-color: #00a6fb;
   border-color: none;
   border-radius: 15px;
-  min-width: 100px;
+  min-width: 50px;
   min-height: 40px;
   border-style: none;
 }
+.DelCart {
+  font-size: 16px;
+  align-items: center;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 150px;
+}
+
+.DelCart:hover {
+  background-color: #990000;
+}
+
 .navIcon{
   padding-top: 15px;
 }
+
 .down{
  
   padding-left: 15px;
 }
+
+.cartItem{
+  background-color: #7AE582;
+  border-radius: 20px;
+  text-align: left;
+  border-left: 5px;
+  width:auto;
+  height: auto;
+  padding-top: 10px;
+  padding-left: 50px;
+  margin-top: 10px;
+}
+.cartItem2{
+ 
+    background-color: #F5F7FA;
+    border-radius: 20px;
+    text-align: left;
+    border-left: 5px;
+    width:auto;
+    height: auto;
+    padding-top: 10px;
+    padding-left: 50px;
+    margin-top: 10px;
+    display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.Collection{
+  background-color: #F5F7FA;
+  border-radius: 20px;
+  text-align: left;
+  border-left: 5px;
+  width: auto;
+  height: auto;
+  padding-top: 10px;
+  padding-left: 50px;
+  margin-top: 10px;
+  
+  color: rgb(0, 0, 0);
+}
+.box {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(6, minmax(100px, 1fr));
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 
 
 
