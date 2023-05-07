@@ -12,6 +12,7 @@ use App\models\Item;
 use App\models\Color;
 use App\models\Taille;
 use App\models\Cart;
+use App\models\Order;
 
 use Illuminate\Support\Facades\Log;
 
@@ -227,7 +228,8 @@ class ItemsController extends Controller
 }
 public function addToCart(Request $req)
 {
-    if ($req->session()->has('user'))
+    try{
+        if ($req->session()->has('user'))
     {
             
             $cart = new Cart;
@@ -238,10 +240,18 @@ public function addToCart(Request $req)
             $cart->qte = $req->qte;
             $cart->save();
             return "winn";
+    } 
+    
     }
-    else{
-        return redirect()->back();
-    }    
+    catch(\Throwable $e) {
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return "Fail"; 
+    }
+   
+       
 }
 static function cartItem()
 {
@@ -274,6 +284,36 @@ public function cartList()
 public function removeCart($id){
     cart::destroy($id);
     return redirect()->back();
+}
+public function orderPlace (Request $req)
+{
+    try{
+      $user_id = Session::get('user')['id'];
+    $allCart = Cart::where('user_id',$user_id)->get();
+    foreach($allCart as $cart)
+    {
+        $order = new Order;
+        $order -> item_id=$cart['item_id'];
+        $order -> user_id=$cart['user_id'];
+        $order -> color_id=$cart['color_id'];
+        $order -> taille_id=$cart['taille_id'];
+        $order -> statut = "Confirme";
+        $order -> quantite=$cart['qte'];
+        $order ->save();
+        $allCart = Cart::where('user_id',$user_id)->delete();
+
+    }
+    $req ->input();
+    return redirect()->back();   
+    }
+    catch(\Throwable $e) {
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return "Fail"; 
+    }
+    
 }
 
 }

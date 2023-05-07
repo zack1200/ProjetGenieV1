@@ -50,6 +50,12 @@ if(Session::has('user')){
   </ul>
 </nav>
 <h1>Mon panier</h1>
+<form action="orderplace" method="POST">
+    @csrf
+<button type="submit" class="btn ">confirmer </button>
+</form>
+
+<br><br>
 <div class="col-md-5 ">
 @foreach($cart_items as $item)
 <div class="row cart_devider">
@@ -72,23 +78,7 @@ if(Session::has('user')){
 
 
 
-<div class="box">
-    @foreach($cart_items as $item)
-        <div class="item ">
-            <a class="colorLink" href="/">
-                <img src="{{ asset('img/model/' . $item->mookup) }}" alt="" width="100px" height="90px" >
-            </a>
-            <div class="details">
-                <div class="size">Tailles : {{ $item->nomtaille }}</div>
-                <div class="color"> <span class="color-sample" style="background-color: {{ $item->CodeCouleur }};"></span></div>
-            </div>
-            <button type="button" class="DelCart " >
-            supprimer
-            </button>
-           
-        </div>
-    @endforeach
-</div>
+
 
 
 

@@ -79,6 +79,8 @@ Route::post('/add_to_cart', [ItemsController::class, 'addToCart']);
 Route::get('/cartlist', [ItemsController::class, 'cartList']);
 //supprimer un item du panier 
 Route::get('/removefromcart/{id}',[ItemsController::class,'removeCart']);
+//passer une commande
+Route::post("orderplace",[ItemsController::class,'orderPlace']);
 //deconnexion
 Route::get('/deconnexion', function () {
     Session::forget('user');

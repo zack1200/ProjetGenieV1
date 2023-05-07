@@ -1,19 +1,32 @@
 // Récupérer tous les boutons de couleur
-let colorButtons = document.querySelectorAll('.color-sample-btn');
+
 let tailleButtons = document.querySelectorAll('.taille-sample-btn');
 
 
 // Ajouter un gestionnaire d'événements de clic à chaque bouton de couleur
-colorButtons.forEach(button => {
-  button.addEventListener('click', function() {
-    // Supprimer la classe active de tous les boutons de couleur
-    colorButtons.forEach(btn => btn.classList.remove('active'));
+const colorBtns = document.querySelectorAll('.color-sample-btn');
 
-    // Ajouter la classe active au bouton cliqué
-    this.classList.add('active');
-  });
+colorBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const colorId = btn.value;
+        const itemId = btn.getAttribute('id').replace('color-sample-btn-', '');
+        const selectedColorInput = document.getElementById(`color_id_${itemId}`);
+        console.log(`Article: ${itemId}, Couleur sélectionnée: ${colorId}`);
+        //selectedColorInput.value = colorId;
+    });
 });
+const tailleBtns = document.querySelectorAll('.taille-sample-btn');
 
+tailleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const tailleId = btn.value;
+        const itemId = btn.getAttribute('id').replace('taille-sample-btn-', '');
+        const selectedTailleInput = document.getElementById(`taille_id_${itemId}`);
+        console.log(`Article: ${itemId}, taille sélectionnée: ${tailleId}`);
+        /*selectedColorInput.value = colorId;*/
+    });
+});
+/*
 tailleButtons.forEach(button => {
   button.addEventListener('click', function() {
       // Supprimer la classe active de tous les boutons de taille
@@ -23,10 +36,10 @@ tailleButtons.forEach(button => {
       this.classList.add('active');
 
       // Mettre à jour la valeur de l'élément caché avec l'ID de la taille sélectionnée
-      document.getElementById('selected-taille').value = this.value;
+      
   });
 });
-
+/*
 const visibleQuantityInput = document.getElementById('qte');
         const hiddenQuantityInput = document.getElementById('hidden-quantity-input');
         visibleQuantityInput.addEventListener('change', () => {
@@ -34,7 +47,7 @@ const visibleQuantityInput = document.getElementById('qte');
             console.log(`Quantité sélectionnée: ${selectedQuantity}`);
             hiddenQuantityInput.value = selectedQuantity;
         });
-        const buttons = document.querySelectorAll('.taille-sample-btn');
+       /* const buttons = document.querySelectorAll('.taille-sample-btn');
         const selectedTailleInput = document.getElementById('selected-taille');
     
         buttons.forEach(button => {
@@ -52,7 +65,7 @@ const visibleQuantityInput = document.getElementById('qte');
                 console.log(`Couleur sélectionnée: ${colorId}`);
                 selectedColorInput.value = colorId;
             });
-        });
+        });*/
 
         function increment() {
             const currentValue = parseInt(visibleQuantityInput.value);
