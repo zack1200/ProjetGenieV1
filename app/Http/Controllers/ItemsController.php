@@ -239,7 +239,7 @@ public function addToCart(Request $req)
             $cart->taille_id = $req->taille_id;
             $cart->qte = $req->qte;
             $cart->save();
-            return "winn";
+            return redirect()->back(); 
     } 
     
     }
@@ -315,6 +315,50 @@ public function orderPlace (Request $req)
     }
     
 }
+public function orders(){
+    try {     
+         
+        
+            
+        
+        $Orders = DB::table('orders')           
+            ->join('items', 'orders.item_id', '=', 'items.id' )
+            ->join('colors', 'orders.color_id', '=', 'colors.id')
+            ->join('tailles', 'orders.taille_id', '=', 'tailles.id')
+            ->join('users','orders.user_id','=','users.id')
+            ->select('items.nom as nom_item','colors.*','tailles.*','items.*','orders.quantite','orders.id as order_id','users.nom as nomC','orders.statut')
+            ->get();
+            return view('Admin.livraison', ['orders' => $Orders]);
+   
+            
+    } catch(\Throwable $e) {
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return "Fail"; 
+    }
+}
+
+public function updateOrderStatus(Request $request, $id)
+{
+   
+   try {
+        $order = Order::findOrFail($id);
+        $order->statut = $request->input('statut');
+        $order->save();
+
+        return redirect()->back()->with('success', 'Statut de la commande mis à jour avec succès');
+    } catch (\Throwable $e) {
+        // Gérer l'erreur
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return redirect()->back()->with('error', 'Une erreur est survenue lors de la mise à jour du statut de la commande');
+    }
+}
+
+
 
 }
 

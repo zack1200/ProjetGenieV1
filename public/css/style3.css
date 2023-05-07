@@ -73,6 +73,7 @@ endsection
     border-radius: 20px;
     text-align: left;
     border-left: 5px;
+    min-width: 450px;
     width:auto;
     height: auto;
     padding-top: 10px;
