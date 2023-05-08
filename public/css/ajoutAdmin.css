@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'FiraCode';
+    src: url('../Fonts/Fira_Code/FiraCode-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    background-color: rgb(225, 229, 242);
+  }
+
+  #boutonEnregistrer{
+    padding: 10px;
+    background-color: rgb(0, 0, 255);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    margin-top: 10px;
+  }
+
+  #titre {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+  #nomUser {
+    margin-left: 15px;
+  }
+
+  #emailUser {
+    margin-left: 25px;
+  }
+
+  #passwordUser {
+    margin-left: 58px;
+  }
+
+  #formulaireAjout {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    background-color: rgb(0, 166, 251);
+  }

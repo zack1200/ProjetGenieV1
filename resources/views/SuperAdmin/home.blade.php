@@ -8,11 +8,16 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/style3.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/listeAdmin.css') }}">
+
     <title>Document</title>
 </head>
 
 <header>
-<a href="/" class="logo "><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
+  <a href="/" class="logo "><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
+
+  <a id="boutonAjouter" class="btn btn-default" href="{{ route('SuperAdmin.createAdmin') }}">Ajouter</a>
+
 </header>
 
 <body>
@@ -26,17 +31,28 @@
 </head>
 <body>
 
+
+
+<div id="laPage" class="flex-container">
+
     @if (count($users))
         @foreach ($users as $user)
-          <li> Utilisateur #{{ $user->id }}</li>
-          <li> Nom : {{ $user->nom }}</li>
-          <li> Email : {{ $user->email }}</li>
+        @if ($user->role == 'Admin')
+
+        <div id="unUtilisateur">
+
+          <li id="nomUtilisateur"> Nom : {{ $user->nom }}</li>
+          <li id="emailUtilisateur"> Email : {{ $user->email }}</li>
 
           <form method="POST" action="{{ route('users.destroy', [$user->id]) }}">
             @csrf 
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">Supprimer</button>
+            <button id="boutonSupprimer" type="submit" class="btn btn-danger">Supprimer</button>
           </form>
+
+          </div>
+
+          @endif
           
         @endforeach
     @else
@@ -47,7 +63,7 @@
 
   <div>
 
-  <a class="btn btn-default" href="{{ route('SuperAdmin.createAdmin') }}">Ajouter</a>
+</div>
 
 </div>
 

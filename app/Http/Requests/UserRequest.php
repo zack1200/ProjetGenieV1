@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
             'nom' => 'required|min:2',
             'email' => 'required|min:3',
             'password' => 'required|min:3',
-            'role' => "Admin",
+            'role' => 'Admin',
         ];
     }
 

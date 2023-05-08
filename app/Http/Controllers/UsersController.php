@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Session;
+
 use Illuminate\Http\Request;
+
 use App\models\User;
-use App\Http\Requests\UserRequest;
+
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Log;
 
 class UsersController extends Controller
@@ -71,8 +78,17 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         try {
-            $user = new User($request->all());
-            $user->save();
+            $request->validate([
+                'email'=>'required|unique:users',
+                'nom'=>'required',
+                'password'=>'required',
+            ]);       
+                $users = new user ;
+                $users->nom=$request->nom;
+                $users->email=$request->email;            
+                $users->password= Hash::make($request->password);
+                $users->role=$request->role; 
+                $users->save();
         }
 
         catch (\Throwable $e) {
