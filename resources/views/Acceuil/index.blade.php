@@ -125,9 +125,10 @@ if(Session::has('user')){
                       <h5>Choisir une couleur</h5>
                       <div class="">
                           @foreach ($itemcompaign->color as $itemColor)
-                          
-                          <input type="radio" name="color_id" value="{{$itemColor->id}}" style=" background-color: {{$itemColor->CodeCouleur}};">
-                          <button type="button" class="color-sample-btn" style="background-color: {{$itemColor->CodeCouleur}};">                      
+                          <label>
+                          <input type="radio" name="color_id" value="{{$itemColor->id}}" >
+                          <span class="color-sample-btn" style="background-color: {{$itemColor->CodeCouleur}};"> </span>
+                          </label>                     
                           @endforeach
                       </div>
                   </div>
@@ -143,15 +144,14 @@ if(Session::has('user')){
                       
                   </div>
 
-                  <div class="container">
-                      <h5>Quantité</h5>                        
-                      <div>                                   
-                          <button type="button" onclick="decrement()" class="qte">-</button>
-                          <input type="number" class="qtenbr" id="qte" name="qte_{{$itemcompaign->id}}" min="1" max="{{$itemcompaign->max_item}}" value="1" >
-                          <button type="button" onclick="increment()" class="qte">+</button>
-                      </div>
-                      <input type="hidden" name="qte" id="hidden-quantity-input" value="1">
-                  </div>
+                    <div class="container">
+                    <h5>Quantité</h5>                        
+                    <div>                                   
+                        <input type="number" class="qtenbr" id="qte" name="qte" min="1" max="{{$itemcompaign->max_item}}" value="1">                     
+                    </div>
+                    
+                    </div>
+
 
                   <input type="hidden" name="item_id" value="{{$itemcompaign->id}}">
                   <div class="container">

@@ -67,23 +67,7 @@ const visibleQuantityInput = document.getElementById('qte');
             });
         });*/
 
-        function increment() {
-            const currentValue = parseInt(visibleQuantityInput.value);
-            const maxValue = parseInt(visibleQuantityInput.max);
-            if (currentValue < maxValue) {
-                visibleQuantityInput.value = currentValue + 1;
-                hiddenQuantityInput.value = currentValue + 1;
-            }
-        }
-
-        function decrement() {
-            const currentValue = parseInt(visibleQuantityInput.value);
-            const minValue = parseInt(visibleQuantityInput.min);
-            if (currentValue > minValue) {
-                visibleQuantityInput.value = currentValue - 1;
-                hiddenQuantityInput.value = currentValue - 1;
-            }
-        }
+   
 
 
 

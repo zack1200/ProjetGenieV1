@@ -80,7 +80,7 @@
                             @endforeach                           
                         <h1 >Livree :</h1>
                         @foreach ($orders as $order)
-                            @if ($order->statut === 'Confirme')
+                            @if ($order->statut === 'Livree')
                         <div class="container livree capitalise">
                             <div class="row">                              
                                 <div class="col-md-3" style="min-width:125px">
