@@ -49,7 +49,8 @@ if(Session::has('user')){
    
   </ul>
 </nav>
-<h1>Mon panier</h1>
+
+
 <form action="orderplace" method="POST">
     @csrf
 <button type="submit" class="btn ">confirmer </button>

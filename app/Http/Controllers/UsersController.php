@@ -49,7 +49,7 @@ class UsersController extends Controller
             $users->password= Hash::make($req->password);
             $users->role=$req->role;
             $users->save();
-             return redirect('/login');
+             return redirect('/');
     }
 //fin
 

@@ -90,10 +90,12 @@ Route::patch('/orders/{id}/update-status', [ItemsController::class, 'updateOrder
 
 
 
+
 //deconnexion
 Route::get('/deconnexion', function () {
     Session::forget('user');
-    return "ciao";
+    return redirect('/');
+    
 });
 
 

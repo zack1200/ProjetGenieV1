@@ -27,23 +27,31 @@ if(Session::has('user')){
   </div>
   <ul class="navbar-options">
     
-    @if(Session::has('user'))
-
-    
+  @if(Session::has('user') && Session::get('user')['role'] == 'user')
     <div class="btn-group">
         <button type="button" class="dropLog dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             {{Session::get('user')['nom']}}
         </button>
-            <ul class="dropdown-menu down">                
-                <li><a href="/deconnexion" id="dec">Commande</a></li>
-                <li><a href="/deconnexion" id="dec">Deconnexion</a></li>
-                
-            </ul>
+        <ul class="dropdown-menu down">                
+            <li><a href="/deconnexion" id="dec">Commande</a></li>
+            <li><a href="/deconnexion" id="dec">Deconnexion</a></li>                
+        </ul>
     </div>
     <li class="navIcon"><a href="/cartlist "  ><img src="{{asset('img/icon/basket.png') }}" alt="" width="30px" height="30px" >({{$total}})</a></li>
-    @else
+    @elseif (Session::has('user') && Session::get('user')['role'] == 'admin')
+    <div class="btn-group">
+        <button type="button" class="dropLog dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            {{Session::get('user')['nom']}}
+        </button>
+        <ul class="dropdown-menu down " >                           
+            <li ><a href="/deconnexion" id="dec" >Deconnexion</a></li>                
+        </ul>
+    </div>
+    <li class="navIcon"><a href="/home" id="dec">Home</a></li>
+@else
     <li><a href="/" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Connexion</a></li>
-    @endif
+@endif
+
 
     
     
@@ -78,6 +86,7 @@ if(Session::has('user')){
                         @endforeach
                     </div>
                 @endif
+                <br>
                 <button class="signin" >
                 se connecter                
                 </button>               
@@ -85,10 +94,7 @@ if(Session::has('user')){
                 <hr>   
   </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -148,14 +154,13 @@ if(Session::has('user')){
                     <h5>Quantité</h5>                        
                     <div>                                   
                         <input type="number" class="qtenbr" id="qte" name="qte" min="1" max="{{$itemcompaign->max_item}}" value="1">                     
+                    </div>                   
                     </div>
-                    
-                    </div>
-
-
                   <input type="hidden" name="item_id" value="{{$itemcompaign->id}}">
                   <div class="container">
+                  @if(Session::has('user') && Session::get('user')['role'] == 'user')
                       <button type="submit">Ajouter au panier</button>
+                  @endif
                   </div>
               </form>
                            

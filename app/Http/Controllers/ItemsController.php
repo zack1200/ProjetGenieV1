@@ -13,6 +13,7 @@ use App\models\Color;
 use App\models\Taille;
 use App\models\Cart;
 use App\models\Order;
+use App\models\User;
 
 use Illuminate\Support\Facades\Log;
 
@@ -357,6 +358,9 @@ public function updateOrderStatus(Request $request, $id)
         return redirect()->back()->with('error', 'Une erreur est survenue lors de la mise à jour du statut de la commande');
     }
 }
+
+
+
 
 
 
