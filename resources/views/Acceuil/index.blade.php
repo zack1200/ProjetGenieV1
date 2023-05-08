@@ -6,10 +6,9 @@
     <title>Technique de l'informatique</title>
     <link rel="icon" href="{{asset('img/logo.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
     <link rel="stylesheet" href="{{asset('css/style.css') }}">
-    <title>Document</title>
+   
 </head>
 <body>
 <?php 
@@ -172,9 +171,7 @@ if(Session::has('user')){
           @else
             <h1>Une campagne sera bientot publier</h1>
         @endif
-      
-        <input type='radio' name="gender"/>
-<input type='radio' name="gender"/>
+ 
 
         
 

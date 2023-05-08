@@ -65,7 +65,7 @@ endsection
     padding-top: 10px;
     padding-left: 50px;
     margin-top: 10px;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0ff, 0 0 70px #0ff, 0 0 80px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+    text-shadow: 0 0 10px #fff, 0 0 100px #fff, 0 0 100px #fff, 0 0 10px rgb(255, 255, 255), 0 0 100px rgb(255, 255, 255), 0 0 100px rgb(255, 255, 255)0 0 100px rgb(255, 255, 255), 0 0 100px rgb(255, 255, 255);
     color: #fff;
 }
 .Reservation{
@@ -268,6 +268,13 @@ h5{
   height: 150px;
   border-radius: 5px;
 
+}
+.stat{
+  border-style: none;
+  background-color: #F5F7FA;
+}
+.capitalise{
+  text-transform: uppercase;
 }
 
 

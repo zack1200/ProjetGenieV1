@@ -24,7 +24,7 @@
             </button>                        
           </div>
           <div class="col-md-3 mb-3">
-            <button type="button" class="Ajt" style="" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button type="button" class="Ajt" style="" data-bs-toggle="modal" data-bs-target="#staticBackdrop9">
               <img src="{{asset('img/icon/utilisateur.png') }}" alt="Logo" width="100px" height="100px">
               <h5>Afficher les utilisateur </h5>
             </button>                        
@@ -39,7 +39,7 @@
     <div class="row offset-2 ">
         <div class="col-md-6 col-sm-6">
             @foreach ($items as $item) 
-                <div class="container Collection" style="background-color: #F5F7FA; width:650px;">
+                <div class="container Collection" style=" min-width:650px;">
                     <div class="row align-items-center">
                         <div class="col-md-3">
                             <img src="{{ asset('img/model/' . $item->mookup) }}" alt="Logo" width="100px" height="100px">
@@ -74,9 +74,7 @@
                                 <h5 class="optiontitre"><b>{{$color->nom}}</b></h5>
                             </div>
                             
-                            <div class="col-md-3 option">  
-                                <a href="/supprimerC/{{$color['id']}}" class=""><img src="{{asset('img/icon/supprimer.png') }}" alt="" width="20px" height="20px"></a>
-                            </div>
+                            
                         </div>
                     </div>
                 @endforeach
@@ -90,7 +88,30 @@
             @endif
         </div>
     </div>
+    <div class="modal fade" id="staticBackdrop9" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Liste des utilisateurs </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>  
+                    <div class="modal-body">
+                    <div class="modal-body">
+                        <ul>
+                        @foreach(App\Models\User::where('role', 'user')->get() as $user)
+                          <li> {{ $user->email }}</li>
+                      @endforeach
 
+                        </ul>
+                    </div>
+
+
+                    </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
 

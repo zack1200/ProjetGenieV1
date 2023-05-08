@@ -53,29 +53,12 @@ class UsersController extends Controller
     }
 //fin
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+public function show(string $id)
+{
+    $users = User::where('name', 'user')->get();
+    return view('myView', ['users' => $users]);
+}
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

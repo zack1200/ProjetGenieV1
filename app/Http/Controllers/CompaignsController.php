@@ -29,7 +29,7 @@ class CompaignsController extends Controller
         try{
             $campagne=new Compaign($req->all());
             $campagne->save();
-            return "ajouter";
+            return redirect()->back();
 
         }
         catch(\Throwable $e){
@@ -37,7 +37,7 @@ class CompaignsController extends Controller
             Log::debug($e);
             Log::debug($e->getMessage());
 
-            return "Fail"; 
+            return redirect()->back(); 
 
         }
     }
@@ -95,6 +95,7 @@ class CompaignsController extends Controller
     {*/
         $compaigns = Compaign::where('start_date', '<=', date('Y-m-d'))
                              ->where('end_date', '>=', date('Y-m-d'))
+                             ->where('actif','==','1')
                              ->get();
 
         $previousCompaigns = Compaign::where('end_date', '<=', date('Y-m-d'))
@@ -115,6 +116,7 @@ public function showA( Request $req)
     {*/
         $compaigns = Compaign::where('start_date', '<=', date('Y-m-d'))
                              ->where('end_date', '>=', date('Y-m-d'))
+                             
                              ->get();
 
         $previousCompaigns = Compaign::where('end_date', '<=', date('Y-m-d'))

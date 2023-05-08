@@ -13,9 +13,9 @@
                 
                         <h1>
                         @if($compaign->actif)                           
-                            {{$compaign->nom}} / actif  
-                            @else 
                             {{$compaign->nom}} / inactif  
+                            @else 
+                            {{$compaign->nom}} / actif  
                             @endif                                               
                         <a href="{{ route('campaign.updateActif', [$compaign]) }}"  data-bs-toggle="modal" data-bs-target="#staticBackdrop3" >
                         <img src="{{asset('img/icon/play-button.png') }}" alt="" width="30px" height="30px"></a>                             
@@ -71,6 +71,7 @@
                                       <option value="{{ $couleur->id }}">{{ $couleur->nom }}</option>
                                   @endforeach
                               </select>
+                              
 
                               <label for="taille">Sélectionner une taille :</label>
                               <select name="taille" id="taille">
@@ -229,9 +230,10 @@
                     
                         <label for="actif">Statut :</label>
                         @if($compaign->actif)
-                            <p class="text-success">Campagne active</p>
+                        <p class="text-danger">Campagne inactive</p>
                         @else
-                            <p class="text-danger">Campagne inactive</p>
+                        <p class="text-success">Campagne active</p>
+                            
                         @endif
                     
 
