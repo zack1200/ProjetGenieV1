@@ -68,7 +68,7 @@ class UsersController extends Controller
      * @param   \Illuminate\Http\Request $request
      * @return  \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
         try {
             $user = new User($request->all());
