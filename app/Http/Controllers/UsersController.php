@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\models\User;
 use Illuminate\Support\Facades\Hash;
@@ -23,14 +24,14 @@ class UsersController extends Controller
             'email'=>'required',           
             'password'=>'required',
         ]); 
-        $user =user::where(['email'=>$req->email])->first();
+        $user =User::where(['email'=>$req->email])->first();
         if(! $user || ! Hash::check($req->password,$user->password))
         {
             return redirect('/login');
         }
         else{
             $req->session()->put('user',$user);
-            return redirect('/');
+            return redirect()->back();
         }
     }
 //fin
@@ -48,33 +49,16 @@ class UsersController extends Controller
             $users->password= Hash::make($req->password);
             $users->role=$req->role;
             $users->save();
-             return redirect('/login');
+             return redirect('/');
     }
 //fin
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+public function show(string $id)
+{
+    $users = User::where('name', 'user')->get();
+    return view('myView', ['users' => $users]);
+}
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

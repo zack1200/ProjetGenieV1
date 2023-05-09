@@ -9,7 +9,7 @@
  
 
   body{
-    background-image:url(../img/BGLogin.jpg) ;
+    background-image:url(../img/bgClient.png) ;
     font-family: 'FiraCode', sans-serif;
     color: #7FFF00;
     font-size: 14px;
@@ -42,7 +42,7 @@
     padding-top: 20px;
     text-align: center;
     align-items: center;
-    color: #7FFF00;
+    color: #00FFFF;
   }
   
   
@@ -139,8 +139,9 @@
   }
   
   .signin {
-    background-color: #0B6623;
+    background-color: #00FFFF;
     color: #000000;
+
     width: 100%;
     padding: 10px 20px;
     display: block;
@@ -150,11 +151,13 @@
     transition: all 0.5s ease-in-out;
     border: none;
     text-transform: uppercase;
+    font-weight: bold;
+    
   }
   
   .signin:hover {
-    background: #7FFF00;
-    box-shadow: 0px 4px 35px -5px #7FFF00;
+    background: #00FFFF;
+    box-shadow: 0px 4px 35px -5px #00FFFF;
     cursor: pointer;
   }
   
@@ -179,7 +182,7 @@
   
   .register {
    
-    color: #7FFF00;
+    color: #00FFFF;
     width: 100%;
     display: block;
     border-radius: 20px; 

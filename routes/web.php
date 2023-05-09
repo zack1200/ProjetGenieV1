@@ -26,9 +26,7 @@ Route::get('/login', function () {
 Route::get('/reservation', function () {
     return view('Admin/reservation');
 });
-Route::get('/livraison', function () {
-    return view('Admin/livraison');
-});
+
 Route::get('/Add', function () {
     return view('Admin/AjouterCompagne');
 });
@@ -73,6 +71,32 @@ Route::post('/campaign/create', [ColorsController::class, 'create'])->name('colo
 Route::post('/createItemSize', [ItemsController::class, 'createCampagneItemColorSize'])->name('item.createCampagneItemColorSize');
 //supprimer une couleur 
 Route::get('/supprimerC/{color}',[ColorsController::class,'destroy']);
+//ajouter au panier 
+Route::post('/add_to_cart', [ItemsController::class, 'addToCart']);
+//afficher le panier 
+Route::get('/cartlist', [ItemsController::class, 'cartList']);
+//supprimer un item du panier 
+Route::get('/removefromcart/{id}',[ItemsController::class,'removeCart']);
+//afficher les reservation
+
+//passer une commande
+Route::post("orderplace",[ItemsController::class,'orderPlace']);
+//afficher les reservation
+Route::get('/livraison', [ItemsController::class, 'orders']);
+
+
+Route::patch('/orders/{id}/update-status', [ItemsController::class, 'updateOrderStatus'])->name('orders.updateStatus');
+
+
+
+
+
+//deconnexion
+Route::get('/deconnexion', function () {
+    Session::forget('user');
+    return redirect('/');
+    
+});
 
 
 

@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use App\models\Compaign;
 use App\models\Item;
 use App\models\Color;
 use App\models\Taille;
+use App\models\Cart;
+use App\models\Order;
+use App\models\User;
+
 use Illuminate\Support\Facades\Log;
 
 class ItemsController extends Controller
@@ -220,8 +227,142 @@ class ItemsController extends Controller
 
     }
 }
-
+public function addToCart(Request $req)
+{
+    try{
+        if ($req->session()->has('user'))
+    {
+            
+            $cart = new Cart;
+            $cart->user_id = $req->session()->get('user')['id'];
+            $cart->item_id = $req->item_id;
+            $cart->color_id = $req->color_id;
+            $cart->taille_id = $req->taille_id;
+            $cart->qte = $req->qte;
+            $cart->save();
+            return redirect()->back(); 
+    } 
     
+    }
+    catch(\Throwable $e) {
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return "Fail"; 
+    }
+   
+       
+}
+static function cartItem()
+{
+    $user_id=Session::get('user')['id'];
+    return Cart::where('user_id',$user_id)->count();
+}
+
+public function cartList()
+{
+    try {
+        $user_id = Session::get('user')['id'];
+        $cart_items = DB::table('cart')
+                                    
+            ->where('cart.user_id', $user_id)
+            ->join('items', 'cart.item_id', '=', 'items.id' )
+            ->join('colors', 'cart.color_id', '=', 'colors.id')
+            ->join('tailles', 'cart.taille_id', '=', 'tailles.id')
+            ->select('items.nom as nom_item','colors.*','tailles.*','items.*','cart.qte','cart.id as cart_id')
+            ->get();
+    
+        return view('Acceuil.cartlist', compact('cart_items')); 
+    } catch(\Throwable $e) {
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return "Fail"; 
+    }
+}
+public function removeCart($id){
+    cart::destroy($id);
+    return redirect()->back();
+}
+public function orderPlace (Request $req)
+{
+    try{
+      $user_id = Session::get('user')['id'];
+    $allCart = Cart::where('user_id',$user_id)->get();
+    foreach($allCart as $cart)
+    {
+        $order = new Order;
+        $order -> item_id=$cart['item_id'];
+        $order -> user_id=$cart['user_id'];
+        $order -> color_id=$cart['color_id'];
+        $order -> taille_id=$cart['taille_id'];
+        $order -> statut = "Confirme";
+        $order -> quantite=$cart['qte'];
+        $order ->save();
+        $allCart = Cart::where('user_id',$user_id)->delete();
+
+    }
+    $req ->input();
+    return redirect()->back();   
+    }
+    catch(\Throwable $e) {
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return "Fail"; 
+    }
+    
+}
+public function orders(){
+    try {     
+         
+        
+            
+        
+        $Orders = DB::table('orders')           
+            ->join('items', 'orders.item_id', '=', 'items.id' )
+            ->join('colors', 'orders.color_id', '=', 'colors.id')
+            ->join('tailles', 'orders.taille_id', '=', 'tailles.id')
+            ->join('users','orders.user_id','=','users.id')
+            ->select('items.nom as nom_item','colors.*','tailles.*','items.*','orders.quantite','orders.id as order_id','users.nom as nomC','orders.statut')
+            ->get();
+            return view('Admin.livraison', ['orders' => $Orders]);
+   
+            
+    } catch(\Throwable $e) {
+        //Gérer l'erreur 
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return "Fail"; 
+    }
+}
+
+public function updateOrderStatus(Request $request, $id)
+{
+   
+   try {
+        $order = Order::findOrFail($id);
+        $order->statut = $request->input('statut');
+        $order->save();
+
+        return redirect()->back()->with('success', 'Statut de la commande mis à jour avec succès');
+    } catch (\Throwable $e) {
+        // Gérer l'erreur
+        Log::debug($e);
+        Log::debug($e->getMessage());
+
+        return redirect()->back()->with('error', 'Une erreur est survenue lors de la mise à jour du statut de la commande');
+    }
+}
+
+
+
+
+
 
 }
 

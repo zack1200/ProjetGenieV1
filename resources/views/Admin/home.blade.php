@@ -13,9 +13,9 @@
                 
                         <h1>
                         @if($compaign->actif)                           
-                            {{$compaign->nom}} / actif  
-                            @else 
                             {{$compaign->nom}} / inactif  
+                            @else 
+                            {{$compaign->nom}} / actif  
                             @endif                                               
                         <a href="{{ route('campaign.updateActif', [$compaign]) }}"  data-bs-toggle="modal" data-bs-target="#staticBackdrop3" >
                         <img src="{{asset('img/icon/play-button.png') }}" alt="" width="30px" height="30px"></a>                             
@@ -71,6 +71,7 @@
                                       <option value="{{ $couleur->id }}">{{ $couleur->nom }}</option>
                                   @endforeach
                               </select>
+                              
 
                               <label for="taille">Sélectionner une taille :</label>
                               <select name="taille" id="taille">
@@ -197,6 +198,7 @@
                                 <input type="text" id="max_items" name="max_items" value="{{ old('max_items', $itemcompaign->max_items) }}">
                                 <label for="mookup">Sélectionner un mookup</label>
                                 <input type="file" class="form-control-file" id="mookup" name="mookup" value="{{ old('mookup', $itemcompaign->mookup) }}">
+                                
                                 <label for="actif">Actif :</label>
                                   <select name="actif" id="actif">
                                       <option value="1" {{ $itemcompaign->actif ? 'selected' : '' }}>Oui</option>
@@ -229,18 +231,19 @@
                     
                         <label for="actif">Statut :</label>
                         @if($compaign->actif)
-                            <p class="text-success">Campagne active</p>
+                        <p class="text-danger">Campagne inactive</p>
                         @else
-                            <p class="text-danger">Campagne inactive</p>
+                        <p class="text-success">Campagne active</p>
+                            
                         @endif
                     
 
                         <label for="actif">Actif :</label>
                             <select name="actif" id="actif">
-                                <option value="1" {{ $compaign->actif ? 'selected' : '' }}>Oui</option>
-                                <option value="0" {{ !$compaign->actif ? 'selected' : '' }}>Non</option>
+                                <option value="1" {{ $compaign->actif ? 'selected' : '' }}>non</option>
+                                <option value="0" {{ !$compaign->actif ? 'selected' : '' }}>oui</option>
                             </select>
-
+<br><br>
                     <button class="button">modifier</button>
                          </form>
 

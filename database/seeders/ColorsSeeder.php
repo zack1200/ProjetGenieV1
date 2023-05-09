@@ -15,13 +15,13 @@ class ColorsSeeder extends Seeder
     {
         DB::table('colors')->insert([
             [
-                'nom' => 'zakaria',
-                'CodeCouleur' => '#1A171B',               
+                'nom' => 'ROUGE',
+                'CodeCouleur' => '#FF0000',               
                 'created_at'=> date('Y-m-d H-i-s'),  
             ],
             [
-                'nom' => 'zakaria',
-                'CodeCouleur' => '#1A171B',               
+                'nom' => 'BLEU',
+                'CodeCouleur' => '#0078FF',               
                 'created_at'=> date('Y-m-d H-i-s'),  
             ]
         ]);
