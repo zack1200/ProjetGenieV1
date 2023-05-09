@@ -18,22 +18,18 @@ $total=0;
 if(Session::has('user')){
     $total = ItemsController::cartItem();
 }
-
-
 ?>
 <nav class="navbar">
   <div class="navbar-logo">
     <a href="/"><img src="{{asset('img/logo.png') }}" alt="Logo"></a>
   </div>
-  <ul class="navbar-options">
-    
+  <ul class="navbar-options">    
   @if(Session::has('user') && Session::get('user')['role'] == 'user')
     <div class="btn-group">
         <button type="button" class="dropLog dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             {{Session::get('user')['nom']}}
         </button>
-        <ul class="dropdown-menu down">                
-            <li><a href="/deconnexion" id="dec">Commande</a></li>
+        <ul class="dropdown-menu down">                           
             <li><a href="/deconnexion" id="dec">Deconnexion</a></li>                
         </ul>
     </div>
@@ -50,11 +46,7 @@ if(Session::has('user')){
     <li class="navIcon"><a href="/home" id="dec">Home</a></li>
 @else
     <li><a href="/" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Connexion</a></li>
-@endif
-
-
-    
-    
+@endif    
   </ul>
 </nav>
 
@@ -92,16 +84,11 @@ if(Session::has('user')){
                 </button>               
                 <a href="/register" class="register" >je n'ai pas de compte </a>
                 <hr>   
-  </form>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-
-
-
+                </form>
+                    </div>      
+                    </div>
+                </div>
+                </div>
 
 <div class="container  " >
                 <div class="row align-items-center text-center">

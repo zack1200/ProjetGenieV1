@@ -51,10 +51,7 @@ if(Session::has('user')){
 </nav>
 
 
-<form action="orderplace" method="POST">
-    @csrf
-<button type="submit" class="btn ">confirmer </button>
-</form>
+
 
 <br><br>
 <div class="col-md-5 ">
@@ -69,11 +66,15 @@ if(Session::has('user')){
         <span class="color-sample" style="background-color: {{ $item->CodeCouleur }};"></span>
     </div>
     <div class="col-md-3 ">
-        <a href="/removefromcart/{{ $item->cart_id}}" class="btn btn-warning">remove to cart </a>
+        <a href="/removefromcart/{{ $item->cart_id}}" class="btn btn-warning">Supprimer du panier  </a>
     </div>
 </div>
 
 @endforeach 
+<form action="orderplace" method="POST">
+    @csrf
+<button type="submit" class="btn ">confirmer </button>
+</form>
 </div>
 
 

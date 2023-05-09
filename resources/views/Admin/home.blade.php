@@ -198,6 +198,7 @@
                                 <input type="text" id="max_items" name="max_items" value="{{ old('max_items', $itemcompaign->max_items) }}">
                                 <label for="mookup">Sélectionner un mookup</label>
                                 <input type="file" class="form-control-file" id="mookup" name="mookup" value="{{ old('mookup', $itemcompaign->mookup) }}">
+                                
                                 <label for="actif">Actif :</label>
                                   <select name="actif" id="actif">
                                       <option value="1" {{ $itemcompaign->actif ? 'selected' : '' }}>Oui</option>
@@ -239,10 +240,10 @@
 
                         <label for="actif">Actif :</label>
                             <select name="actif" id="actif">
-                                <option value="1" {{ $compaign->actif ? 'selected' : '' }}>Oui</option>
-                                <option value="0" {{ !$compaign->actif ? 'selected' : '' }}>Non</option>
+                                <option value="1" {{ $compaign->actif ? 'selected' : '' }}>non</option>
+                                <option value="0" {{ !$compaign->actif ? 'selected' : '' }}>oui</option>
                             </select>
-
+<br><br>
                     <button class="button">modifier</button>
                          </form>
 

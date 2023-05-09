@@ -85,7 +85,7 @@ Route::post("orderplace",[ItemsController::class,'orderPlace']);
 Route::get('/livraison', [ItemsController::class, 'orders']);
 
 
-
+Route::patch('/orders/{id}/update-status', [ItemsController::class, 'updateOrderStatus'])->name('orders.updateStatus');
 
 
 
